@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_classes')->constrained('classes')->onDelete('cascade');
             $table->foreignId('id_period')->constrained('periods')->onDelete('cascade');
-            $table->integer('nis');
+            $table->bigInteger('nis');
             $table->string('name', 50);
-            $table->string('major', 5);
-            $table->string('gender', 5);
+            $table->string('major', 20)->nullable();
+            $table->string('gender', 10)->nullable();
             $table->text('address');
-            $table->string('phone', 20);
+            $table->string('phone', 20)->nullable();
             $table->timestamps();
         });
     }
