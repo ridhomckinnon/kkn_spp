@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\PeriodController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Controllers\StudentController;
@@ -27,7 +30,36 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/student', [StudentController::class,'index'])->name('student');
+
+    Route::prefix('student')->group(function () {
+        Route::get('/', [StudentController::class, 'index'])->name('student');
+        Route::post('/post', [StudentController::class, 'index'])->name('post.student');
+    });
+
+    Route::prefix('setting')->group(function () {
+        Route::get('/', [SettingController::class, 'index'])->name('setting');
+    });
+
+    Route::prefix('period')->group(function () {
+        Route::get('/{period}', [PeriodController::class, 'show'])->name('show.period');
+        Route::post('/', [PeriodController::class, 'store'])->name('post.period');
+        Route::get('/delete/{period}', [PeriodController::class, 'destroy'])->name('destroy.period');
+        Route::post('/update', [PeriodController::class, 'update'])->name('update.period');
+    });
+
+    Route::prefix('classes')->group(function () {
+        Route::get('/', [ClassesController::class, 'index'])->name('classes');
+        Route::get('/{classes}', [ClassesController::class, 'show'])->name('show.classes');
+        Route::post('/', [ClassesController::class, 'store'])->name('post.classes');
+        Route::get('/delete/{classes}', [ClassesController::class, 'destroy'])->name('destroy.classes');
+        Route::post('/update', [ClassesController::class, 'update'])->name('update.classes');
+    });
+
+
+
+
+
+
     // Route::get('/student', function () {
     //     return view('student');
     // })->name('student');
@@ -40,11 +72,8 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
     Route::get('/report', function () {
         return view('report');
     })->name('report');
-    Route::get('/setting', function () {
-        return view('setting');
-    })->name('setting');
-
-
-
+    // Route::get('/setting', function () {
+    //     return view('setting');
+    // })->name('setting');
 });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

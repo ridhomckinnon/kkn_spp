@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Period;
 use Illuminate\Http\Request;
-use App\Models\Student;
 
-class StudentController extends Controller
+class PeriodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('student', compact(['students']));
+        //
     }
 
     /**
@@ -36,7 +35,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $period = new Period;
+        $period->fill($request->all());
+        $period->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -47,7 +50,10 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $period = Period::findOrFail($id);
+        return response()->json([
+            'data' => $period
+        ]);
     }
 
     /**
@@ -68,9 +74,15 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $period = Period::findOrFail($request->idPeriod)->update([
+            'school_year' => $request->school_year,
+            'price_spp' => $request->price_spp,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +93,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $period = Period::findOrFail($id)->delete();
+
+        return redirect()->back();
     }
 }
