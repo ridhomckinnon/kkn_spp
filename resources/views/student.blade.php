@@ -1,9 +1,13 @@
 <x-app-layout>
+<<<<<<< HEAD
+
+=======
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ 'Student' }}
         </h2>
     </x-slot>
+>>>>>>> 9f16baa5f6502e712e04fb17ae72d49632e48a9b
     <x-slot name="main" class="">
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
