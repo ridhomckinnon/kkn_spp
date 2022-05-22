@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use Illuminate\Http\Request;
-use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 
-class StudentController extends Controller
+class ClassesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('student', compact(['students']));
+        $classes = Classes::all();
+        return view('classes', compact('classes'));
     }
 
     /**
@@ -36,7 +37,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id_school = Auth::user()->school->id;
+        $classes = Classes::create([
+            'name' => $request->name,
+            'id_school' => $id_school
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -47,7 +54,11 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $classes = Classes::findOrFail($id);
+
+        return response()->json([
+            'data' => $classes
+        ]);
     }
 
     /**
@@ -68,9 +79,13 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $classes = Classes::findOrFail($request->idClasses)->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +96,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $classes = Classes::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }

@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_period');
+            $table->foreignId('id_classes')->constrained('classes')->onDelete('cascade');
+            $table->foreignId('id_period')->constrained('periods')->onDelete('cascade');
             $table->integer('nis');
-            $table->string('name',50);
-            $table->string('major',5);
-            $table->string('gender',5);
+            $table->string('name', 50);
+            $table->string('major', 5);
+            $table->string('gender', 5);
             $table->text('address');
-            $table->string('phone',20);
+            $table->string('phone', 20);
             $table->timestamps();
         });
     }
