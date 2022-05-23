@@ -1,34 +1,16 @@
 <x-app-layout>
-<<<<<<< HEAD
-
-=======
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ 'Student' }}
-        </h2>
-    </x-slot>
->>>>>>> 9f16baa5f6502e712e04fb17ae72d49632e48a9b
     <x-slot name="main" class="">
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
                 <div>
                     <h2 class="font-bold  text-2xl">Student</h2>
-                    <!-- <p class="font-light">this page for student</p> -->
                 </div>
             </div>
             <div class="w-4/6 flex justify-end">
-                <div class="relative w-3/6">
-                    <input type="text"
-                        class="border w-full h-12 border-slate-200 rounded-xl bg-transparent focus:outline-none focus:placeholder-transparent focus:ring-2 appearance-none focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Cari">
-                    <button
-                        class="bg-slate-100 w-10 h-10 border border-slate-300 text-xs rounded-xl absolute transition-colors duration-300 border rounded-lg font-light hover:bg-gray-100 focus:outline-none top-1 right-1">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
                 <button
                     class="bg-sky-500 px-4 py-2 text-sm text-white rounded-xl ml-4 w-auto block text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
-                    type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i></button>
+                    type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
+                </button>
                 <div id="addModal" tabindex="-1" aria-hidden="true"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
@@ -214,8 +196,6 @@
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Jenis Kelamin</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Telepon</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Alamat</th>
-                        <!-- <th class="font-bold p-4 pl-4 text-gray-500 text-left">Jurusan</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Kelas</th> -->
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
                     </tr>
                 </thead>

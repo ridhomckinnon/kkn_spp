@@ -1,14 +1,9 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-4 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
+
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -16,31 +11,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('student')" :active="request()->routeIs('student')">
-                        {{ __('Data Siswa') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('transaction')" :active="request()->routeIs('transaction')">
-                        {{ __('Transaksi') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('report')" :active="request()->routeIs('report')">
-                        {{ __('Laporan') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('setting')" :active="request()->routeIs('setting')">
-                        {{ __('Pengaturan') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('classes')" :active="request()->routeIs('classes')">
-                        {{ __('Kelas') }}
-                    </x-nav-link>
-                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -72,10 +43,7 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-                        <x-dropdown-link :href="route('setting')" onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                            Setting
-                        </x-dropdown-link>
+
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -117,7 +85,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+     this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
