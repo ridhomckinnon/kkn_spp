@@ -33,7 +33,11 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
 
     Route::prefix('student')->group(function () {
         Route::get('/', [StudentController::class, 'index'])->name('student');
-        Route::post('/post', [StudentController::class, 'index'])->name('post.student');
+        Route::post('/post', [StudentController::class, 'store'])->name('post.student');
+        Route::get('/delete/{student}', [StudentController::class, 'destroy'])->name('destroy.student');
+        Route::get('/{student}', [StudentController::class, 'show'])->name('show.student');
+        Route::post('/update', [StudentController::class, 'update'])->name('update.student');
+
     });
 
     Route::prefix('setting')->group(function () {

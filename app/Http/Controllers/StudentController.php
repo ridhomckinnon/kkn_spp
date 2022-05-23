@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
+use App\Models\Period;
 use Illuminate\Http\Request;
 use App\Models\Student;
 
@@ -15,7 +17,9 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('student', compact(['students']));
+        $periods = Period::all();
+        $classes = Classes::all();
+        return view('student', compact('students','periods','classes'));
     }
 
     /**
@@ -36,7 +40,9 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $students = Student::create($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -47,7 +53,11 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        return response()->json([
+            'data' => $student
+        ]);
     }
 
     /**
@@ -68,9 +78,21 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $student = Student::findOrFail($request->id)->update([
+            "id" => $request->id,
+            "nis" => $request->nis,
+            "name" => $request->name,
+            "gender" => $request->gender,
+            "major" => $request->major,
+            "id_classes" => $request->id_classes,
+            "id_period" => $request->id_period,
+            "address" => $request->address,
+            "phone" => $request->phone,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +103,9 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $students = Student::findOrFail($id)->delete();
+
+        return redirect()->back();
+
     }
 }
