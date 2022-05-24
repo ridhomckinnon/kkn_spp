@@ -91,6 +91,13 @@
                         </a>
                     </li>
 
+                    <li class="px-3">
+                        <a href="{{route('user')}}" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                        <i class="fa fa-users"></i>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </aside>

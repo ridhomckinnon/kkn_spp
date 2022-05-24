@@ -22,6 +22,16 @@ class StudentController extends Controller
         return view('student', compact('students','periods','classes'));
     }
 
+    public function classes($idClass)
+    {
+        $class = Classes::findOrFail($idClass);
+        $students = Student::where('id_classes',$idClass)->get();
+        $periods = Period::all();
+        $classes = Classes::all();
+
+        return view('all-student', compact('class','students','periods','classes','idClass'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

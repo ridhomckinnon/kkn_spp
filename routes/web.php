@@ -6,6 +6,8 @@ use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,13 +28,14 @@ Route::get('/', function () {
 // })->middleware(['auth'])->name('dashboard');
 
 
-Route::middleware([EnsureTokenIsValid::class])->group(function () {
+Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
     Route::prefix('student')->group(function () {
         Route::get('/', [StudentController::class, 'index'])->name('student');
+        Route::get('/classes/{classesId}', [StudentController::class, 'classes'])->name('classes.student');
         Route::post('/post', [StudentController::class, 'store'])->name('post.student');
         Route::get('/delete/{student}', [StudentController::class, 'destroy'])->name('destroy.student');
         Route::get('/{student}', [StudentController::class, 'show'])->name('show.student');
@@ -58,6 +61,14 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
         Route::post('/', [ClassesController::class, 'store'])->name('post.classes');
         Route::get('/delete/{classes}', [ClassesController::class, 'destroy'])->name('destroy.classes');
         Route::post('/update', [ClassesController::class, 'update'])->name('update.classes');
+    });
+
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('user');
+        Route::get('/{user}', [UserController::class, 'show'])->name('show.user');
+        Route::post('/', [UserController::class, 'store'])->name('post.user');
+        Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('destroy.user');
+        Route::post('/update', [UserController::class, 'update'])->name('update.user');
     });
 
 
