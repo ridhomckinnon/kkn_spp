@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <!-- <div class="relative flex justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
 
@@ -29,8 +29,64 @@
                 </div>
             @endif
 
-            <h3 class="font-semibold text-3xl">Selamat Datang Di Aplikasi Pembayaran SPP SMKS Jambi Medan</h3>
+        </div> -->
+        <div class="md:flex h-screen md:w-full bg-white">
+            <div class="md:w-4/12 sm:w-8/12 px-8 items-center justify-center "
+            >
+                <div>
+                <x-guest-layout>
+                    <x-auth-card>
+                        <x-slot name="logo">
+                            <a href="/">
+                                <x-application-logo class="fill-current" />
+                            </a>
+                        </x-slot>
 
+                        <!-- Session Status -->
+                        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                        <!-- Validation Errors -->
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                            <div>
+                                <input id="email" class="w-full border-2 font-light rounded-xl border-slate-100 focus:border-rose-300 focus:ring-1 focus:ring-rose-500 focus:ring-opacity-50" type="text" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus>
+
+                            </div>
+
+                            <div class="mt-4">
+
+                                <input id="password" class="w-full border-2 font-light rounded-xl border-slate-100 focus:border-rose-300 focus:ring-1 focus:ring-rose-500 focus:ring-opacity-50" type="password" placeholder="Password" type="password" name="password" :value="old('password')" required autocomplete="current-password">
+
+                            </div>
+
+                            <div class="block mt-4">
+                                <label for="remember_me" class="inline-flex items-center">
+                                    <input id="remember_me" type="checkbox" class="rounded border-2 border-slate-100 text-rose-600 focus:ring-rose-200 focus:ring-opacity-0" name="remember">
+                                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                                </label>
+                            </div>
+
+                            <div class="flex items-center mt-4">
+
+
+                                <x-button>
+                                    {{ __('Login') }}
+                                </x-button>
+                            </div>
+                        </form>
+                    </x-auth-card>
+                </x-guest-layout>
+
+                    <!-- <h3 class="font-black text-2xl border text-center mb-4">Sistem Pembayaran SPP</h3> -->
+
+                </div>
+            </div>
+            <div class="md:w-8/12 md:block sm:hidden bg-no-repeat bg-center bg-cover" style="background-image:url('img/hero.jpg')">
+
+            </div>
         </div>
     </body>
 </html>

@@ -155,13 +155,13 @@
             </div>
         </div>
 
-        <div class="relative overflow-hidden my-4">
-            <table id="dataTable" class="table-auto w-full">
-                <thead class="bg-slate-100 text-white border-b">
+        <div class="relative">
+            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+                <thead class="bg-slate-100 mt-4">
                     <tr>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Nama Kelas</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">#</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">Nama Kelas</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -169,8 +169,8 @@
                     @foreach ($classes as $data)
                         <tr>
 
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->name }}
+                            <td class="text-left font-light p-3 border-b border-slate-100">{{ $loop->iteration }}</td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">{{ $data->name }}
                             </td>
 
 

@@ -45,6 +45,7 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
     });
 
     Route::prefix('period')->group(function () {
+        Route::get('/', [PeriodController::class, 'index'])->name('period');
         Route::get('/{period}', [PeriodController::class, 'show'])->name('show.period');
         Route::post('/', [PeriodController::class, 'store'])->name('post.period');
         Route::get('/delete/{period}', [PeriodController::class, 'destroy'])->name('destroy.period');

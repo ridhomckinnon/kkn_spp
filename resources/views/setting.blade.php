@@ -1,9 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ 'Pengaturan' }}
-        </h2>
-    </x-slot>
+
     <x-slot name="main" class="">
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
@@ -24,7 +20,8 @@
                 </div>
                 <button
                     class="bg-sky-500 px-4 py-2 text-sm text-white rounded-xl ml-4 w-auto block text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
-                    type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i></button>
+                    type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
+                </button>
                 <div id="addModal" tabindex="-1" aria-hidden="true"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
