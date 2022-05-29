@@ -80,8 +80,6 @@
                     </x-auth-card>
                 </x-guest-layout>
 
-                    <!-- <h3 class="font-black text-2xl border text-center mb-4">Sistem Pembayaran SPP</h3> -->
-
                 </div>
             </div>
             <div class="md:w-8/12 md:block sm:hidden bg-no-repeat bg-center bg-cover" style="background-image:url('img/hero.jpg')">

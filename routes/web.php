@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,18 +71,25 @@ Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('destroy.user');
         Route::post('/update', [UserController::class, 'update'])->name('update.user');
     });
+    // Route::prefix('transaction')->group(function () {
+    //     Route::get('/', [TransactionController::class, 'index'])->name('transaction');
+    // });
 
 
 
 
 
 
-    // Route::get('/student', function () {
-    //     return view('student');
-    // })->name('student');
     Route::get('/transaction', function () {
         return view('transaction');
     })->name('transaction');
+    Route::get('/transaction/detail', function () {
+        return view('all-transaction');
+    })->name('transaction-detail');
+    Route::get('/transaction/recap', function () {
+        return view('transaction-recap');
+    })->name('transaction-recap');
+
     Route::get('/report', function () {
         return view('report');
     })->name('report');

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap" rel="stylesheet">
@@ -14,19 +14,16 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-5.1.3.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
 
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">0 -->
     <!-- Scripts -->
-    <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
-
     <script src="https://kit.fontawesome.com/59113285e4.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
-
-    <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
+    <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('js/flowbite.js') }}"></script>
+    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script>
         $(document).ready(function() {
@@ -42,9 +39,9 @@
         <aside class="shadow fixed inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto bg-white dark:bg-gray-800">
 
             <div class="h-full bg-white rounded dark:bg-gray-800">
-                <div class="shrink-0 flex px-2  mb-2 border h-16">
+                <div class="shrink-0 flex px-2  mb-2 h-16">
                     <a href="{{ route('dashboard') }}" class="flex no-underline items-center text-black">
-                        <x-application-logo class="block h-4 w-auto fill-current text-gray-600" />
+                        <div><x-application-logo class="block h-4 w-auto fill-current text-gray-600" /></div>
                         <div class="font-bold ml-4">SMKS JAMBI Medan</div>
                     </a>
                 </div>
@@ -79,7 +76,7 @@
                         </a>
                     </li>
                     <li class="px-3">
-                        <a href="#" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                        <a href="/transaction" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                         <i class="fa fa-credit-card"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Transaksi</span>
                         </a>
@@ -104,12 +101,15 @@
 
         <!-- Page Content -->
         <div class="flex flex-col flex-1 w-full lg:ml-64">
-            <header class="fixed z-20 bg-white w-10/12">
+            <header class="fixed z-20 bg-white md:w-10/12 w-screen">
                 @include('layouts.navigation')
 
             </header>
             <main class="bg-white mx-4 mb-4 mt-24 py-4 px-4 sm:px-6 lg:px-8 rounded-xl">
+                @include('sweetalert::alert')
+
                 {{ $main }}
+
             </main>
         </div>
     </div>

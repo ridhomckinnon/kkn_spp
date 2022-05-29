@@ -145,7 +145,7 @@
                             <div
                                 class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
                                 <a id="btnDelete"
-                                    class="text-white bg-rose-500 hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
+                                    class="text-white bg-rose-500 no-underline hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
                                 <button data-modal-toggle="confirmModal" type="button"
                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
                             </div>
@@ -176,7 +176,7 @@
 
                             <td class="text-left border-b border-slate-100">
                                 <button
-                                    class="btnEdit  bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
+                                    class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
                                     data-modal-toggle="editModal" data-id="{{ $data->id }}"
                                     data-url={{ url('/') }}><i class="fa-solid fa-pen-to-square"></i></button>
                                 <button

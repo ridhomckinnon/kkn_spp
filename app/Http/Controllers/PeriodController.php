@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Period;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PeriodController extends Controller
 {
@@ -39,7 +40,7 @@ class PeriodController extends Controller
         $period = new Period;
         $period->fill($request->all());
         $period->save();
-
+        Alert::toast('Tambah Data Berhasil','success');
         return redirect()->back();
     }
 
@@ -82,7 +83,7 @@ class PeriodController extends Controller
             'price_spp' => $request->price_spp,
             'status' => $request->status,
         ]);
-
+        Alert::toast('Update Data Berhasil','success');
         return redirect()->back();
     }
 
@@ -95,7 +96,7 @@ class PeriodController extends Controller
     public function destroy($id)
     {
         $period = Period::findOrFail($id)->delete();
-
+        Alert::toast('Hapus Data Berhasil','success');
         return redirect()->back();
     }
 }

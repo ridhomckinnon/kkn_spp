@@ -1,23 +1,12 @@
 <x-app-layout>
-
     <x-slot name="main" class="">
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
                 <div>
-                    <h2 class="font-bold  text-2xl">Periode</h2>
-                    <!-- <p class="font-light">this page for student</p> -->
+                    <h2 class="font-bold  text-2xl">Transaksi</h2>
                 </div>
             </div>
             <div class="w-4/6 flex justify-end">
-                <div class="relative w-3/6">
-                    <input type="text"
-                        class="border w-full h-12 border-slate-200 rounded-xl bg-transparent focus:outline-none focus:placeholder-transparent focus:ring-2 appearance-none focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Cari">
-                    <button
-                        class="bg-slate-100 w-10 h-10 border border-slate-300 text-xs rounded-xl absolute transition-colors duration-300 border rounded-lg font-light hover:bg-gray-100 focus:outline-none top-1 right-1">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
                 <button
                     class="bg-sky-500 px-4 py-2 text-sm text-white rounded-xl ml-4 w-auto block text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
                     type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
@@ -44,26 +33,67 @@
                                 </button>
                             </div>
 
-                            <form class="space-y-6" action="{{ route('post.period') }}" method="POST">
+                            <form class="space-y-6" action="{{ route('post.student') }}" method="POST">
                                 <div class="p-6 space-y-6">
                                     @csrf
+
                                     <div>
-                                        <input type="text" name="school_year"
+                                        <input type="text" name="nis"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Tahun Ajaran" required>
-                                    </div>
-                                    <div>
-                                        <input type="number" min="0" name="price_spp"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nominal" required>
+                                            placeholder="NIS" required>
                                     </div>
 
                                     <div>
-                                        <input type="text" name="status"
+                                        <input type="nama" name="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Status" required>
+                                            placeholder="Nama Siswa" required>
                                     </div>
 
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="gender">
+                                            <option selected>Pilih Jenis Kelamin</option>
+                                            <option value="Pria">Pria</option>
+                                            <option value="Wanita">Wanita</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="major">
+                                            <option selected>Pilih Jurusan</option>
+                                            <option value="TKJ">TKJ</option>
+                                            <option value="AK">Akutansi</option>
+                                            <option value="AP">Administrsai Perkantoran</option>
+                                            <option value="TKR">TKR</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" name="id_classes" value="">
+                                    </div>
+
+                                    <div>
+                                        <select name="id_period"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option selected>Periode</option>
+
+                                                <option value=""> 2020
+                                                </option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <textarea name="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Your message..."></textarea>
+                                    </div>
+
+                                    <div>
+                                        <input type="number" name="phone"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="Nomor Handphone" required>
+                                    </div>
                                 </div>
 
                                 <div
@@ -99,26 +129,68 @@
                                 </button>
                             </div>
 
-                            <form class="space-y-6" action="{{ route('update.period') }}" method="POST">
+                            <form class="space-y-6" action="{{ route('update.student') }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="idPeriod" id="idPeriod">
                                 <div class="p-6 space-y-6">
+                                    <input type="hidden" name="id" id="idStudent">
                                     <div>
-                                        <input type="text" name="school_year" id="school_year"
+                                        <input type="text" name="nis" id="nis"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Tahun Ajaran" required>
-                                    </div>
-                                    <div>
-                                        <input type="number" min="0" name="price_spp" id="price_spp"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nominal" required>
+                                            placeholder="NIS" required>
                                     </div>
 
                                     <div>
-                                        <input type="text" name="status" id="status"
+                                        <input type="nama" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Status" required>
+                                            placeholder="Nama Siswa" required>
                                     </div>
+
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="gender" id="gender">
+                                            <option selected>Pilih Jenis Kelamin</option>
+                                            <option value="Pria">Pria</option>
+                                            <option value="Wanita">Wanita</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="major" id="major">
+                                            <option selected>Pilih Jurusan</option>
+                                            <option value="TKJ">TKJ</option>
+                                            <option value="AK">Akutansi</option>
+                                            <option value="AP">Administrsai Perkantoran</option>
+                                            <option value="TKR">TKR</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" name="id_classes" value="">
+                                    </div>
+
+                                    <div>
+                                        <select name="id_period" id="id_period"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option selected>Periode</option>
+                                                <option value="">2022
+                                                </option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <textarea id="address" name="address" rows="4"
+                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Your message..."></textarea>
+                                    </div>
+
+                                    <div>
+                                        <input type="number" name="phone" id="phone"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="Nomor Handphone" required>
+                                    </div>
+
                                 </div>
 
                                 <div
@@ -132,7 +204,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="confirmModal" tabindex="-1" aria-hidden="true"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
@@ -162,7 +233,7 @@
                             <div
                                 class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
                                 <a id="btnDelete"
-                                    class="text-white bg-rose-500 no-underline hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
+                                    class="text-white bg-rose-500 hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
                                 <button data-modal-toggle="confirmModal" type="button"
                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
                             </div>
@@ -176,42 +247,39 @@
             <table class="table-auto w-full ">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Tahun Ajaran</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Nominal</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Status</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
+                    <th class="font-bold p-4 text-gray-500 text-left">#</th>
+                            <th class="font-bold p-4 text-gray-500 text-left">NIS</th>
+                            <th class="font-bold p-4 text-gray-500 text-left">Nama Siswa</th>
+                            <th class="font-bold p-4 text-gray-500 text-left">Alamat</th>
+                            <th class="font-bold p-4 text-gray-500 text-left">Tahun Ajaran</th>
+                            <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($period as $data)
                         <tr>
+                        <td class="text-left font-light p-3 border-b border-slate-100"></td>
+                        <td class="text-left font-light p-3 border-b border-slate-100"> 123
+                        </td>
+                        <td class="text-left font-light p-3 border-b border-slate-100">Budi</td>
+                        <td class="text-left font-light p-3 border-b border-slate-100">Tembung</td>
+                        <td class="text-left font-light p-3 border-b border-slate-100">
+                            <select name="" id="" class="border rounded-lg py-2">
+                                <option value="" class="py-2">2021</option>
+                                <option value="" class="py-2">2022</option>
+                                <option value="" class="py-2">2023</option>
+                                <option value="" class="py-2">2024</option>
+                            </select>
+                        </td>
 
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->school_year }}
-                            </td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->price_spp }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->status }}
-                            </td>
 
+                        <td class="text-left border-b border-slate-100">
+                            <a href="/transaction/recap">Lihat Detail</a>
 
-                            <td class="text-left border-b border-slate-100">
-                                <button
-                                    class="btnEdit  bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
-                                    data-modal-toggle="editModal" data-id="{{ $data->id }}"
-                                    data-url={{ url('/') }}><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button
-                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 ml-2"
-                                    data-modal-toggle="confirmModal"
-                                    data-href=" {{ url('period/delete') . '/' . $data->id }}"><i
-                                        class="fa-solid fa-trash"></i></button>
-                            </td>
+                        </td>
                         </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>
-
 
     </x-slot>
     <div class="max-w-7xl mx-auto  bg-white mt-4">
@@ -236,13 +304,16 @@
                 $('.btnEdit').click(function() {
                     var id = $(this).data('id')
                     var url = $(this).data('url')
-                    $.get(url + "/period/" + id, function({
+                    $.get(url + "/student/" + id, function({
                         data
                     }) {
-                        $('#idPeriod').val(data.id);
-                        $('#school_year').val(data.school_year);
-                        $('#price_spp').val(data.price_spp);
-                        $('#status').val(data.status);
+                        $('#idStudent').val(data.id);
+                        $('#nis').val(data.nis);
+                        $('#name').val(data.name);
+                        $('#school_year').val(data.major);
+                        $('#id_classes').val(data.id_classes);
+                        $('#id_period').val(data.id_period);
+                        $('#address').val(data.address);
                     })
                 })
             });
