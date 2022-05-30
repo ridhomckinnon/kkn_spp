@@ -53,6 +53,7 @@
                             <span class="ml-3">Dashboard</span>
                         </a>
                     </li>
+                    @if (auth()->user()->role == 'admin')
                     <li class="px-3">
                         <button type="button" class="flex items-center hover:text-rose-500 p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                             <i class="fa fa-gear"></i>
@@ -68,6 +69,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
 
                     <li class="px-3">
                         <a href="/student" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
@@ -91,7 +93,7 @@
                     <li class="px-3">
                         <a href="{{route('user')}}" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                         <i class="fa fa-users"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Operator</span>
                         </a>
                     </li>
 

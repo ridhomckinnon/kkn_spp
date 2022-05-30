@@ -14,9 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::whereRole('operator')->get();
 
-        return view('user',compact('users'));
+        return view('user', compact('users'));
     }
 
     /**
@@ -37,7 +37,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate(
+            [
+                'name' => 'required',
+                'username' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|same:c_password',
+                'c_password' => 'required',
+            ],
+            [
+                'password.same' => "Confirm password tidak sama",
+                'name.required' => "name harus diisi",
+                'username.required' => "username harus diisi",
+                'email.required' => "email harus diisi",
+                'password.required' => "password harus diisi",
+                'c_password.required' => "c_password harus diisi",
+            ]
+        );
+
+        User::create($request->all());
+
+        return redirect()->back();
+
     }
 
     /**
