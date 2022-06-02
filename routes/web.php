@@ -92,8 +92,8 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
         return view('report');
     })->name('report');
 
-    // Route::get('/setting', function () {
-    //     return view('setting');
-    // })->name('setting');
+    Route::get('/mutation', function () {
+        return view('mutation');
+    })->name('mutation');
 });
 require __DIR__ . '/auth.php';

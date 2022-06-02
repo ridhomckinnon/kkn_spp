@@ -80,7 +80,7 @@
 
                                 <div
                                     class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                    <button data-modal-toggle="addModalss" type="submit"
+                                    <button data-modal-toggle="addModal" type="submit"
                                         class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-6 py-3 text-center">Simpan</button>
                                     <button data-modal-toggle="addModal" type="button"
                                         class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
@@ -115,12 +115,6 @@
                                 @csrf
                                 <div class="p-6 space-y-6">
                                     <input type="hidden" name="id" id="idStudent">
-                                    <div>
-                                        <input type="text" name="name" id="name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="nama" required>
-                                    </div>
-
                                     <div>
                                         <input type="nama" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -223,7 +217,7 @@
                             <div
                                 class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
                                 <a id="btnDelete"
-                                    class="text-white bg-rose-500 hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
+                                    class="text-white bg-rose-500 no-underline hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
                                 <button data-modal-toggle="confirmModal" type="button"
                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
                             </div>
@@ -233,8 +227,8 @@
             </div>
         </div>
 
-        <div class="relative overflow-hidden border rounded-xl mt-4">
-            <table class="table-auto w-full ">
+        <div class="relative">
+            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">No</th>
