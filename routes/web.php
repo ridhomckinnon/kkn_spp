@@ -93,9 +93,7 @@ Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
     Route::get('/report', function () {
         return view('report');
     })->name('report');
-    Route::get('/report', function () {
-        return view('report');
-    })->name('report');
+
     // Route::get('/setting', function () {
     //     return view('setting');
     // })->name('setting');

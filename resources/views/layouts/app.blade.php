@@ -23,6 +23,7 @@
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/flowbite.js') }}"></script>
+    <script src="{{ asset('js/datepicker.js') }}"></script>
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script>
@@ -84,7 +85,7 @@
                         </a>
                     </li>
                     <li class="px-3">
-                        <a href="#" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                        <a href="/report" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                         <i class="fa fa-print"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Laporan</span>
                         </a>

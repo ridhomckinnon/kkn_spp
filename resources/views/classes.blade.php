@@ -8,7 +8,7 @@
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
                 <div>
-                    <h2 class="font-bold  text-2xl">Kelas</h2>
+                    <h2 class="font-bold text-2xl">Kelas</h2>
                     <!-- <p class="font-light">this page for student</p> -->
                 </div>
             </div>

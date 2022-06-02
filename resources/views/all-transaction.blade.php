@@ -273,7 +273,7 @@
 
 
                         <td class="text-left border-b border-slate-100">
-                            <a href="/transaction/recap">Lihat Detail</a>
+                            <a href="/transaction/recap" class="no-underline">Lihat Detail</a>
 
                         </td>
                         </tr>
