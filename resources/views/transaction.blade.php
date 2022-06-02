@@ -3,12 +3,15 @@
         <div class="flex">
             <div class="w-4/6">
                 <div class="bg-white px-4 pt-4 border rounded-xl">
-                <a href="/transaction/detail" class="block no-underline text-gray-500 px-4 py-2 border rounded-xl capitalize mb-4">
-                    <div class="flex items-center justify-between">
-                        Kelas 1
-                        <i class="fa fa-chevron-right"></i>
-                    </div>
-                </a>
+                    @foreach ($classes as $class)
+                        <a href="{{ route('transaction.student', ['id_classes' => $class->id]) }}"
+                            class="block no-underline text-gray-500 px-4 py-2 border rounded-xl capitalize mb-4">
+                            <div class="flex items-center justify-between">
+                                {{ $class->name }}
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
 

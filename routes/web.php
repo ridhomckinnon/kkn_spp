@@ -29,7 +29,7 @@ Route::get('/', function () {
 // })->middleware(['auth'])->name('dashboard');
 
 
-Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
+Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -41,7 +41,6 @@ Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
         Route::get('/delete/{student}', [StudentController::class, 'destroy'])->name('destroy.student');
         Route::get('/{student}', [StudentController::class, 'show'])->name('show.student');
         Route::post('/update', [StudentController::class, 'update'])->name('update.student');
-
     });
 
     Route::prefix('setting')->group(function () {
@@ -71,6 +70,13 @@ Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('destroy.user');
         Route::post('/update', [UserController::class, 'update'])->name('update.user');
     });
+
+    Route::prefix('transaction')->group(function () {
+        Route::get('/',[TransactionController::class, 'classes'])->name('transaction');
+        Route::get('/detail',[TransactionController::class, 'index'])->name('transaction-detail');
+        Route::get('/classes/{id_classes}',[TransactionController::class, 'student'])->name('transaction.student');
+        Route::get('/recap/{year}/student/{student}',[TransactionController::class, 'recap'])->name('transaction-recap');
+    });
     // Route::prefix('transaction')->group(function () {
     //     Route::get('/', [TransactionController::class, 'index'])->name('transaction');
     // });
@@ -80,15 +86,7 @@ Route::middleware([EnsureTokenIsValid::class,'auth'])->group(function () {
 
 
 
-    Route::get('/transaction', function () {
-        return view('transaction');
-    })->name('transaction');
-    Route::get('/transaction/detail', function () {
-        return view('all-transaction');
-    })->name('transaction-detail');
-    Route::get('/transaction/recap', function () {
-        return view('transaction-recap');
-    })->name('transaction-recap');
+
 
     Route::get('/report', function () {
         return view('report');

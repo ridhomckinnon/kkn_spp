@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use App\Models\Period;
 use App\Models\Classes;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -18,8 +19,36 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::all();
         $periods = Period::all();
+        $students = Student::all();
+        return view('all-transaction', compact('transactions','periods','students'));
+    }
+
+    public function classes()
+    {
+        $students = Student::all();
+        $periods = Period::all();
         $classes = Classes::all();
-        return view('student', compact('tran$transactions','periods','classes'));
+        return view('transaction', compact('students','periods','classes'));
+    }
+
+    public function student($idClass)
+    {
+        $class = Classes::findOrFail($idClass);
+        $students = Student::where('id_classes',$idClass)->get();
+        $periods = Period::all();
+        $classes = Classes::all();
+
+        return view('all-transaction', compact('class','students','periods','classes','idClass'));
+    }
+
+    public function recap($year,$student)
+    {
+        $students = Student::whereId($student)->with('transactions','period')->whereHas('transactions',function($query) use ($year)
+        {
+            $query->whereTahun($year);
+        })->first();
+
+        return view('transaction-recap',compact('students'));
     }
 
     /**

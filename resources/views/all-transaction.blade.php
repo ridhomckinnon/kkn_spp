@@ -7,10 +7,6 @@
                 </div>
             </div>
             <div class="w-4/6 flex justify-end">
-                <button
-                    class="bg-sky-500 px-4 py-2 text-sm text-white rounded-xl ml-4 w-auto block text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
-                    type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
-                </button>
                 <div id="addModal" tabindex="-1" aria-hidden="true"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
@@ -79,8 +75,8 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option selected>Periode</option>
 
-                                                <option value=""> 2020
-                                                </option>
+                                            <option value=""> 2020
+                                            </option>
                                         </select>
                                     </div>
 
@@ -174,8 +170,8 @@
                                         <select name="id_period" id="id_period"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option selected>Periode</option>
-                                                <option value="">2022
-                                                </option>
+                                            <option value="">2022
+                                            </option>
                                         </select>
                                     </div>
 
@@ -247,36 +243,44 @@
             <table class="table-auto w-full ">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
-                    <th class="font-bold p-4 text-gray-500 text-left">#</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">NIS</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Nama Siswa</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Alamat</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Tahun Ajaran</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">#</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">NIS</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">Nama</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">Jenis Kelamin</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">Tahun</th>
+                        <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+
+                    @foreach ($students as $items)
                         <tr>
-                        <td class="text-left font-light p-3 border-b border-slate-100"></td>
-                        <td class="text-left font-light p-3 border-b border-slate-100"> 123
-                        </td>
-                        <td class="text-left font-light p-3 border-b border-slate-100">Budi</td>
-                        <td class="text-left font-light p-3 border-b border-slate-100">Tembung</td>
-                        <td class="text-left font-light p-3 border-b border-slate-100">
-                            <select name="" id="" class="border rounded-lg py-2">
-                                <option value="" class="py-2">2021</option>
-                                <option value="" class="py-2">2022</option>
-                                <option value="" class="py-2">2023</option>
-                                <option value="" class="py-2">2024</option>
-                            </select>
-                        </td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">>{{ $loop->iteration }}</td>
+                            <td class="text-left font-light p-3 border-b border-slate-100"> {{ $items->nis }}
+                            </td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->name }}</td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->gender }}</td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">
+                                <select name="" id="yearOpt" class="border rounded-lg py-2">
+                                    <option value="2019" class="py-2">2019</option>
+                                    <option value="2020" class="py-2">2020</option>
+                                    <option value="2021" class="py-2">2021</option>
+                                    <option value="2022" class="py-2">2022</option>
+                                    <option value="2023" class="py-2">2023</option>
+                                    <option value="2024" class="py-2">2024</option>
+                                    <option value="2025" class="py-2">2025</option>
+                                </select>
+                            </td>
 
 
-                        <td class="text-left border-b border-slate-100">
-                            <a href="/transaction/recap" class="no-underline">Lihat Detail</a>
+                            <td class="text-left border-b border-slate-100">
+                                <a href='{{ url("transaction/recap/2019/student/$items->id") }}' id="btnDetail"
+                                    data-url='{{ url('/') }}' data-id={{$items->id}}>Lihat Detail</a>
 
-                        </td>
+                            </td>
                         </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -289,33 +293,14 @@
         <script>
             $(document).ready(function() {
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
+                $('#yearOpt').on('change', function(e) {
+                    var optionSelected = $("option:selected", this);
+                    var valueSelected = this.value;
+                    var url = $("#btnDetail").data('url')
+                    var id = $("#btnDetail").data('id')
+                    var href = `${url}/transaction/recap/${valueSelected}/student/${id}`
+                    $("#btnDetail").attr('href', href)
                 });
-
-                // Confirm Delete
-                $(".btnConfirm").click(function() {
-                    var href = $(this).data('href');
-                    $("#btnDelete").attr('href', href)
-                });
-
-                $('.btnEdit').click(function() {
-                    var id = $(this).data('id')
-                    var url = $(this).data('url')
-                    $.get(url + "/student/" + id, function({
-                        data
-                    }) {
-                        $('#idStudent').val(data.id);
-                        $('#nis').val(data.nis);
-                        $('#name').val(data.name);
-                        $('#school_year').val(data.major);
-                        $('#id_classes').val(data.id_classes);
-                        $('#id_period').val(data.id_period);
-                        $('#address').val(data.address);
-                    })
-                })
             });
         </script>
     </x-slot>
