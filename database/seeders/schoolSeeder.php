@@ -17,19 +17,20 @@ class schoolSeeder extends Seeder
      */
     public function run()
     {
+        $school = School::create([
+            'code'=> Str::random(5),
+            'name'=> "Smk Jambi",
+            'address'=> " Jl. Pertiwi No.116, Bantan, Kec. Medan Tembung, Kota Medan, Sumatera Utara 20224",
+        ]);
+
         $user = User::create([
-            'name' => 'Smk Jambi',
+            'id_school' => $school->id,
+            'name' => $school->name,
             'username' => 'jambi',
             'email' => 'jambi@email.com',
             'password' => bcrypt('admin123'),
             'role'  => 'operator'
         ]);
 
-        $school = School::create([
-            'id_user'=> $user->id,
-            'code'=> Str::random(5),
-            'name'=> $user->name,
-            'address'=> " Jl. Pertiwi No.116, Bantan, Kec. Medan Tembung, Kota Medan, Sumatera Utara 20224",
-        ]);
     }
 }

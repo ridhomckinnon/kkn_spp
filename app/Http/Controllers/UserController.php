@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -55,7 +56,12 @@ class UserController extends Controller
             ]
         );
 
-        User::create($request->all());
+        $req = $request->all();
+        $school_id = Auth::user()->id_school;
+        $req['id_school'] = $school_id;
+
+
+        User::create($req);
 
         return redirect()->back();
 

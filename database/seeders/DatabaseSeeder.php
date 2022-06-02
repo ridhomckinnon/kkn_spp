@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Models\School;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,12 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create([
-            'name' => "Admin",
-            'username' => "admin",
-            'email' => 'admin@email.com',
+        $school = School::create([
+            'code'=> Str::random(5),
+            'name'=> "Admin Smk Jambi",
+            'address'=> " Jl. Pertiwi No.116, Bantan, Kec. Medan Tembung, Kota Medan, Sumatera Utara 20224",
+        ]);
+
+        $user = User::create([
+            'id_school' => $school->id,
+            'name' => $school->name,
+            'username' => 'admin-jambi',
+            'email' => 'adminjambi@email.com',
             'password' => bcrypt('admin123'),
-            'role' => "admin",
+            'role'  => 'admin'
         ]);
 
         $this->call([
