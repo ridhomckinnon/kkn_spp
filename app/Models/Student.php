@@ -30,5 +30,5 @@ class Student extends Model
     public function period(): HasOne
     {
         return $this->hasOne(Period::class, 'id', 'id_period');
-    }   
+    }
 }

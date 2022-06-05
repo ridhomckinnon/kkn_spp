@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -75,7 +76,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return response()->json([
+            'data' => $user
+        ]);
     }
 
     /**
@@ -96,9 +101,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if ($data['password'] == null) {
+            unset($data['password']);
+        }else{
+            $data['password'] = bcrypt($data['password']);
+        }
+
+        User::findOrFail($data['id'])->update($data);
+
+        return redirect()->back();
     }
 
     /**
@@ -109,6 +124,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id)->delete();
+
+        return redirect()->back();
     }
 }
