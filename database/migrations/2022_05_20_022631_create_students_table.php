@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_classes')->constrained('classes')->onDelete('cascade');
             $table->foreignId('id_period')->constrained('periods')->onDelete('cascade');
-            $table->bigInteger('nis');
+            $table->bigInteger('nis')->unique();
             $table->string('name', 50);
             $table->string('major', 20)->nullable();
             $table->string('gender', 10)->nullable();

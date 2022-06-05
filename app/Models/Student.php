@@ -31,4 +31,14 @@ class Student extends Model
     {
         return $this->hasOne(Period::class, 'id', 'id_period');
     }
+
+    /**
+     * Get the classes associated with the Student
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function classes(): HasOne
+    {
+        return $this->hasOne(Classes::class, 'id','id_classes');
+    }
 }
