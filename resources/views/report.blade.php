@@ -21,8 +21,8 @@
 
             </div>
             <button data-modal-toggle="addModal" type="submit"
-            class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-6 py-3 text-center">Simpan</button>
-            <a href="/dashboard" class="no-underline text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10">Kembali</a>
+            class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-2 text-center">Simpan</button>
+            <a href="/dashboard" class="no-underline text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-4 py-2 hover:text-gray-900 focus:z-10">Kembali</a>
         </div>
     </x-slot>
 </x-app-layout>

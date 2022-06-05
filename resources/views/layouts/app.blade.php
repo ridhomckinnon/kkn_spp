@@ -110,6 +110,12 @@
                         <span class="flex-1 ml-3 whitespace-nowrap">Operator</span>
                         </a>
                     </li>
+                    <li class="px-3">
+                        <a href="{{route('profile')}}" class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                        <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-school"></i></span>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Profile Sekolah</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

@@ -4,7 +4,7 @@
     <x-slot name="main">
         <div class="grid grid-cols-4 gap-4">
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Januari</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -26,7 +26,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Februari</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -47,7 +47,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Maret</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -68,7 +68,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">April</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -89,7 +89,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Mei</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -110,7 +110,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Juni</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -131,7 +131,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Juli</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -152,7 +152,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Agustus</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -173,7 +173,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">September</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -194,7 +194,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Oktober</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -215,7 +215,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">November</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -236,7 +236,7 @@
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg" type="button" data-modal-toggle="payModal">Bayar</button>
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center mb-4">
+            <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Desember</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
