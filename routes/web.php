@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\MutasiController;
+use App\Http\Controllers\MutationController;
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +79,13 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
         Route::get('/classes/{id_classes}',[TransactionController::class, 'student'])->name('transaction.student');
         Route::get('/recap/{year}/student/{student}',[TransactionController::class, 'recap'])->name('transaction-recap');
     });
+
+    Route::prefix('mutation')->group(function () {
+        Route::get('/',[MutationController::class, 'index'])->name('mutation');
+        Route::get('/student/{id}',[MutationController::class, 'detail'])->name('mutation');
+        Route::post('/cetak/{idStudent}',[MutationController::class, 'cetak'])->name('mutation');
+    });
+
     // Route::prefix('transaction')->group(function () {
     //     Route::get('/', [TransactionController::class, 'index'])->name('transaction');
     // });
@@ -85,13 +94,13 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
         return view('report');
     })->name('report');
 
-    Route::get('/mutation', function () {
-        return view('mutation');
-    })->name('mutation');
 
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
+    // Route::get('/mutation', function () {
+    //     return view('mutation');
+    // })->name('mutation');
 });
 
 require __DIR__ . '/auth.php';
