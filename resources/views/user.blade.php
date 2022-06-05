@@ -114,67 +114,36 @@
                             <form class="space-y-6" action="{{ route('update.user') }}" method="POST">
                                 @csrf
                                 <div class="p-6 space-y-6">
-                                    <input type="hidden" name="id" id="idStudent">
+                                    <input type="hidden" name="id" id="idUser">
                                     <div>
-                                        <input type="nama" name="name" id="name"
+                                        <input type="text" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nama Siswa" required>
+                                            placeholder="Nama" required>
                                     </div>
 
                                     <div>
-                                        <select
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            name="gender" id="gender">
-                                            <option selected>Pilih Jenis Kelamin</option>
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita">Wanita</option>
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <select
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            name="major" id="major">
-                                            <option selected>Pilih Jurusan</option>
-                                            <option value="TKJ">TKJ</option>
-                                            <option value="AK">Akutansi</option>
-                                            <option value="AP">Administrsai Perkantoran</option>
-                                            <option value="TKR">TKR</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <select name="id_classes" id="id_classes"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option selected>Pilih Kelas</option>
-                                            {{-- @foreach ($classes as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                            @endforeach --}}
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <select name="id_period" id="id_period"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option selected>Periode</option>
-                                            {{-- @foreach ($periods as $period)
-                                                <option value="{{ $period->id }}">{{ $period->school_year }}
-                                                </option>
-                                            @endforeach --}}
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <textarea id="address" name="address" rows="4"
-                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="Your message..."></textarea>
-                                    </div>
-
-                                    <div>
-                                        <input type="number" name="phone" id="phone"
+                                        <input type="text" name="username" id="username"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nomor Handphone" required>
+                                            placeholder="Username" required>
                                     </div>
 
+                                    <div>
+                                        <input type="email" name="email" id="email"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="E-Mail" required>
+                                    </div>
+
+                                    <div>
+                                        <input type="password" name="password"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="Password">
+                                    </div>
+
+                                    <div>
+                                        <input type="password" name="c_password"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="Confirm Password">
+                                    </div>
                                 </div>
 
                                 <div
@@ -292,15 +261,10 @@
                     $.get(url + "/user/" + id, function({
                         data
                     }) {
-                        $('#idStudent').val(data.id);
-                        $('#nis').val(data.nis);
+                        $('#idUser').val(data.id);
                         $('#name').val(data.name);
-                        $('#gender').val(data.gender);
-                        $('#major').val(data.major);
-                        $('#id_classes').val(data.id_classes);
-                        $('#id_period').val(data.id_period);
-                        $('#address').val(data.address);
-                        $('#phone').val(data.phone);
+                        $('#username').val(data.username);
+                        $('#email').val(data.email);
                     })
                 })
             });

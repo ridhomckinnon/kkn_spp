@@ -43,12 +43,21 @@ class TransactionController extends Controller
 
     public function recap($year,$student)
     {
-        $students = Student::whereId($student)->with('transactions','period')->whereHas('transactions',function($query) use ($year)
+        $students = Student::whereId($student)->with(['transactions'=>function($query) use ($year)
         {
             $query->whereTahun($year);
-        })->first();
+        },'period'])->first();
 
-        return view('transaction-recap',compact('students'));
+        // $transactions = Transaction::whereTahun($year)->with('student.period')->whereHas('student',function ($query) use ($student)
+        // {
+        //     $query->whereId($student);
+        // })->get();
+
+        // return $students;
+
+        $student = Student::findOrFail($student);
+
+        return view('transaction-recap',compact('students','student'));
     }
 
     /**

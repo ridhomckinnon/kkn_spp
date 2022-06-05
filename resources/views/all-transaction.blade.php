@@ -255,7 +255,7 @@
 
                     @foreach ($students as $items)
                         <tr>
-                            <td class="text-left font-light p-3 border-b border-slate-100">>{{ $loop->iteration }}</td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">{{ $loop->iteration }}</td>
                             <td class="text-left font-light p-3 border-b border-slate-100"> {{ $items->nis }}
                             </td>
                             <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->name }}</td>
