@@ -246,8 +246,8 @@
             </div>
         </div>
 
-        <div class="relative overflow-hidden border rounded-xl mt-4">
-            <table class="table-auto w-full ">
+        <div class="relative">
+            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
