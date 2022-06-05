@@ -34,7 +34,7 @@
                             </div>
 
                             <form class="space-y-6" action="{{ route('post.student') }}" method="POST">
-                                <div class="p-6 space-y-6">
+                                <div class="p-6 space-y-6 h-96 overflow-y-auto" style="">
                                     @csrf
 
                                     <div>
