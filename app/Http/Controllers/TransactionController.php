@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
 use App\Models\Period;
 use App\Models\Classes;
 use App\Models\Student;
+use App\Models\Transaction;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -46,39 +48,34 @@ class TransactionController extends Controller
         $students = Student::whereId($student)->with(['transactions'=>function($query) use ($year)
         {
             $query->whereTahun($year);
-        },'period'])->first();
+        },'period','classes'])->first();
 
-        // $transactions = Transaction::whereTahun($year)->with('student.period')->whereHas('student',function ($query) use ($student)
-        // {
-        //     $query->whereId($student);
-        // })->get();
+        $transactions = Transaction::whereTahun($year)->with('student.period')->whereIdStudent($student)->get();
+        // return $transactions;
 
         // return $students;
 
         $student = Student::findOrFail($student);
 
-        return view('transaction-recap',compact('students','student'));
+        return view('transaction-recap',compact('students','student','year','transactions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request,$idStudent)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $this->validate($request,[
+            'payment_date' => 'required'
+        ]);
+
+        $nopayment = mt_rand(1000000, 9999999);
+        $items = $request->all();
+        $items['id_student'] = $idStudent;
+        $items['id_user'] = Auth::user()->id;
+        $items['no_payment'] = $nopayment;
+
+        Transaction::create($items);
+
+        return redirect()->back();
     }
 
     /**

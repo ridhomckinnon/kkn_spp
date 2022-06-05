@@ -1,14 +1,17 @@
 <?php
 
-use App\Http\Controllers\ClassesController;
-use App\Http\Controllers\MutasiController;
-use App\Http\Controllers\MutationController;
-use App\Http\Controllers\PeriodController;
-use App\Http\Controllers\SettingController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\EnsureTokenIsValid;
-use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MutasiController;
+use App\Http\Controllers\PeriodController;
+use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\StudentController;
+use App\Http\Middleware\EnsureTokenIsValid;
+use App\Http\Controllers\MutationController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -76,6 +79,7 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
     Route::prefix('transaction')->group(function () {
         Route::get('/',[TransactionController::class, 'classes'])->name('transaction');
         Route::get('/detail',[TransactionController::class, 'index'])->name('transaction-detail');
+        Route::post('/payment/{idStudent}',[TransactionController::class, 'store'])->name('transaction.payment');
         Route::get('/classes/{id_classes}',[TransactionController::class, 'student'])->name('transaction.student');
         Route::get('/recap/{year}/student/{student}',[TransactionController::class, 'recap'])->name('transaction-recap');
     });
@@ -95,9 +99,9 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
     })->name('report');
 
 
-    Route::get('/profile', function () {
-        return view('profile');
-    })->name('profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
     // Route::get('/mutation', function () {
     //     return view('mutation');
     // })->name('mutation');
