@@ -29,7 +29,7 @@ class TransactionController extends Controller
     {
         $students = Student::all();
         $periods = Period::all();
-        $classes = Classes::all();
+        $classes = Classes::orderBy('name', 'asc')->get();
         return view('transaction', compact('students','periods','classes'));
     }
 

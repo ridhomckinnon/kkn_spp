@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Controllers\MutationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -93,10 +94,11 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
     // Route::prefix('transaction')->group(function () {
     //     Route::get('/', [TransactionController::class, 'index'])->name('transaction');
     // });
+    Route::prefix('report')->group(function () {
+        Route::get('/', [ReportController::class, 'index'])->name('report');
+        Route::post('/report', [ReportController::class, 'post'])->name('report.post');
+    });
 
-    Route::get('/report', function () {
-        return view('report');
-    })->name('report');
 
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

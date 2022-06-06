@@ -18,14 +18,14 @@ class StudentController extends Controller
     {
         $students = Student::all();
         $periods = Period::all();
-        $classes = Classes::all();
+        $classes = Classes::orderBy('name', 'asc')->get();
         return view('student', compact('students','periods','classes'));
     }
 
     public function classes($idClass)
     {
         $class = Classes::findOrFail($idClass);
-        $students = Student::where('id_classes',$idClass)->get();
+        $students = Student::where('id_classes',$idClass)->orderBy('name', 'asc')->get();
         $periods = Period::all();
         $classes = Classes::all();
 

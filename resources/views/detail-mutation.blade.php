@@ -18,14 +18,30 @@
             </div>
             <div class="border rounded-xl p-4 mb-4">
                 <div class="">
-                    <div>
-                        <h4 class="font-semibold ">Transaksi Terakhir</h4>
-                        <!-- <p class="font-light">this page for student</p> -->
-                        <p>Bulan</p>
-                        <p>Tahun</p>
-                        <p>Jumlah</p>
-                        <p>Tanggal Bayar</p>
-                    </div>
+                    <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+                        <thead class="bg-slate-100 mt-4">
+                            <tr>
+                                <th class="font-bold p-4 text-gray-500 text-left">#</th>
+                                <th class="font-bold p-4 text-gray-500 text-left">Bulan</th>
+                                <th class="font-bold p-4 text-gray-500 text-left">Tahun</th>
+                                <th class="font-bold p-4 text-gray-500 text-left">Jumlah</th>
+                                <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($transactions as $data)
+                                <tr>
+                                    <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}
+                                    </td>
+                                    <td class="text-left font-light p-4 border-b border-slate-100">{{ bulan($data->bulan) }}</td>
+                                    <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->tahun }}</td>
+                                    <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->jumlah }}</td>
+                                    <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->created_at }}</td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -50,39 +66,6 @@
                 </div>
             </div>
         </div>
-
-
-
-        <!-- <div class="relative">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
-                <thead class="bg-slate-100 mt-4">
-                    <tr>
-                        <th class="font-bold p-4 text-gray-500 text-left">#</th>
-                        <th class="font-bold p-4 text-gray-500 text-left">Bulan</th>
-                        <th class="font-bold p-4 text-gray-500 text-left">Tahun</th>
-                        <th class="font-bold p-4 text-gray-500 text-left">Jumlah</th>
-                        <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($transactions as $data)
-                        <tr>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}
-                            </td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->bulan }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->tahun }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->jumlah }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->created_at }}</td>
-                        </tr>
-                    @endforeach
-
-                </tbody>
-            </table>
-        </div> -->
-
-
-
-
     </x-slot>
 
 

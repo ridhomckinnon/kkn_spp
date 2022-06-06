@@ -119,7 +119,7 @@
                             </li>
                             <li>
                                 <a href="/transaction"
-                                    class="flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Tunggakan</a>
+                                    class="flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Pembayaran</a>
                             </li>
                         </ul>
                     </li>
