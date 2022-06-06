@@ -1,33 +1,59 @@
 <x-app-layout>
     <x-slot name="main">
+        <div class="">
 
-        <div class="mb-4 relative flex justify-between align-middle items-center">
-            <div class="w-2/6 flex justify-start">
+            <div class="border rounded-xl p-4 mb-4">
                 <div>
-                    <h2 class="font-bold text-2xl">{{$student->name}}</h2>
+                    <h4 class="font-semibold capitalize">{{$student->name}}</h4>
                     <!-- <p class="font-light">this page for student</p> -->
+                </div>
+
+                <div>
+                    <p>Nis  <span>: {{$student->nis}}</span></p>
+                    <p>Tahun Ajaran <span>: {{$student->period->school_year}}</span></p>
+                    <p>Kelas  <span>: {{$student->classes->name}}</span></p>
+                    <p>Jurusan <span>: {{$student->major}}</span></p>
+
+                </div>
+            </div>
+            <div class="border rounded-xl p-4 mb-4">
+                <div class="">
+                    <div>
+                        <h4 class="font-semibold ">Transaksi Terakhir</h4>
+                        <!-- <p class="font-light">this page for student</p> -->
+                        <p>Bulan</p>
+                        <p>Tahun</p>
+                        <p>Jumlah</p>
+                        <p>Tanggal Bayar</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border rounded-xl p-4">
+                <div>
+                    <h4 class="font-semibold">Cetak Bukti Bayar</h4>
+                </div>
+                <form action='{{url("mutation/cetak/$student->id")}}' method="post">
+                    @csrf
+                    <div>
+                        <label for="">Dari : </label>
+                        <input type="date" name="from" class="block bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                    </div>
+                    <div class="mt-2">
+                        <label for="">Sampai : </label>
+                        <input type="date" name="to" class="block bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+                    <button type="submit" class="mt-4 bg-emerald-400 text-white py-2 px-4 rounded-xl">Simpan</button>
+                </form>
+                <div>
                 </div>
             </div>
         </div>
 
-        <div>
-            Nis : {{$student->nis}}<br>
-            Tahun Ajaran : {{$student->period->school_year}}<br>
-            Kelas  : {{$student->classes->name}}<br>
 
-            Jurusan : {{$student->major}}
-        </div>
 
-        <div class="mb-4 relative flex justify-between align-middle items-center">
-            <div class="w-2/6 flex justify-start">
-                <div>
-                    <h2 class="font-bold text-2xl">Transaksi Terakhir</h2>
-                    <!-- <p class="font-light">this page for student</p> -->
-                </div>
-            </div>
-        </div>
-
-        <div class="relative">
+        <!-- <div class="relative">
             <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 mt-4">
                     <tr>
@@ -52,24 +78,10 @@
 
                 </tbody>
             </table>
-        </div>
+        </div> -->
 
-        <div class="mb-4 relative flex justify-between align-middle items-center">
-            <div class="w-2/6 flex justify-start">
-                <div>
-                    <h2 class="font-bold text-2xl">Cetak Bukti Bayar</h2>
-                </div>
-            </div>
-        </div>
 
-        <div>
-            <form action='{{url("mutation/cetak/$student->id")}}' method="post">
-                @csrf
-                Dari : <input type="date" name="from">
-                Sampai : <input type="date" name="to">
-                <button type="submit" class="btn">Simpan</button>
-            </form>
-        </div>
+
 
     </x-slot>
 
