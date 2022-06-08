@@ -1,9 +1,19 @@
 <x-app-layout>
     <x-slot name="main" class="">
+        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
                 <div>
-                    <h2 class="font-bold  text-2xl">Siswa {{$class->name}}</h2>
+
+                    <h2 class="font-bold  text-2xl">Siswa {{ $class->name }}</h2>
                 </div>
             </div>
             <div class="w-4/6 flex justify-end">
@@ -40,13 +50,13 @@
                                     <div>
                                         <input type="number" name="nis"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="NIS" required>
+                                            placeholder="NIS">
                                     </div>
 
                                     <div>
                                         <input type="nama" name="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nama Siswa" required>
+                                            placeholder="Nama Siswa" >
                                     </div>
 
                                     <div>
@@ -71,7 +81,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <input type="hidden" name="id_classes" value="{{$idClass}}">
+                                        <input type="hidden" name="id_classes" value="{{ $idClass }}">
                                     </div>
 
                                     <div>
@@ -86,14 +96,15 @@
                                     </div>
 
                                     <div>
-                                        <textarea name="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        <textarea name="address" rows="4"
+                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             placeholder="Your message..."></textarea>
                                     </div>
 
                                     <div>
                                         <input type="number" name="phone"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nomor Handphone" required>
+                                            placeholder="Nomor Handphone">
                                     </div>
                                 </div>
 
@@ -168,7 +179,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <input type="hidden" name="id_classes" value="{{$idClass}}">
+                                        <input type="hidden" name="id_classes" value="{{ $idClass }}">
                                     </div>
 
                                     <div>

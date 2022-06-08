@@ -43,17 +43,16 @@ class UserController extends Controller
             [
                 'name' => 'required',
                 'username' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:users',
                 'password' => 'required|same:c_password',
                 'c_password' => 'required',
-            ],
-            [
-                'password.same' => "Confirm password tidak sama",
-                'name.required' => "name harus diisi",
-                'username.required' => "username harus diisi",
-                'email.required' => "email harus diisi",
-                'password.required' => "password harus diisi",
-                'c_password.required' => "c_password harus diisi",
+            ],[
+                'name.required' => 'Nama harus diisi',
+                'username.required' => 'Username harus diisi',
+                'email.required' => 'Email harus diisi',
+                'password.required' => 'Password harus diisi',
+                'c_password.required' => 'Konfirmasi password harus diisi',
+                'password.same' => 'Konfirmasi password harus sama dengan password',
             ]
         );
 

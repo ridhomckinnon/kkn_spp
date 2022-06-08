@@ -39,6 +39,13 @@ class ClassesController extends Controller
     public function store(Request $request)
     {
         $id_school = Auth::user()->school->id;
+
+        $this->validate($request, [
+            'name' => 'required',
+        ], [
+            'name.required' => 'Nama harus diisi',
+        ]);
+
         $classes = Classes::create([
             'name' => $request->name,
             'id_school' => $id_school
