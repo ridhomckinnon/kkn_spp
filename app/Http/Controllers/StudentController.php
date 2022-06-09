@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Classes;
 use App\Models\Period;
-use Illuminate\Http\Request;
+use App\Models\Classes;
 use App\Models\Student;
+use Illuminate\Http\Request;
+use App\Imports\StudentImport;
+use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StudentController extends Controller
 {
@@ -24,7 +27,7 @@ class StudentController extends Controller
 
     public function classes($idClass)
     {
-        $class = Classes::findOrFail($idClass);
+        $class = Classes::with('school')->findOrFail($idClass);
         $students = Student::where('id_classes', $idClass)->orderBy('name', 'asc')->get();
         $periods = Period::all();
         $classes = Classes::all();
@@ -66,7 +69,22 @@ class StudentController extends Controller
         ]);
 
         $students = Student::create($request->all());
+        Alert::toast('Tambah Data Berhasil', 'success');
 
+        return redirect()->back();
+    }
+
+    public function import(Request $request){
+
+        $data = [
+            "idClasses" => $request->idClasses,
+            "idSchool" => $request->idSchool,
+            "id_period" => $request->id_period,
+            "major" => $request->major,
+        ];
+
+        Excel::import(new StudentImport($data), $request->file('file'));
+        Alert::toast('Import Berhasil', 'success');
         return redirect()->back();
     }
 
