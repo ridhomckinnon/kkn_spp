@@ -44,6 +44,7 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
         Route::get('/', [StudentController::class, 'index'])->name('student');
         Route::get('/classes/{classesId}', [StudentController::class, 'classes'])->name('classes.student');
         Route::post('/post', [StudentController::class, 'store'])->name('post.student');
+        Route::post('/import', [StudentController::class, 'import'])->name('import.student');
         Route::get('/delete/{student}', [StudentController::class, 'destroy'])->name('destroy.student');
         Route::get('/{student}', [StudentController::class, 'show'])->name('show.student');
         Route::post('/update', [StudentController::class, 'update'])->name('update.student');

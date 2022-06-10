@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
     <x-slot name="main" class="">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
                 <div>
@@ -54,7 +63,7 @@
                                     <div>
                                         <input type="text" name="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                            placeholder="Nama Kelas" required>
+                                            placeholder="Nama Kelas">
                                     </div>
 
                                 </div>

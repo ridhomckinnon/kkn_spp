@@ -16,6 +16,14 @@ class ReportController extends Controller
 
     public function post(Request $request)
     {
+        $this->validate($request, [
+            'from' => 'before:to|required',
+            'to' => 'required',
+        ], [
+            'from.required' => 'Tanggal Awal harus diisi',
+            'to.required' => 'Tanggal Akhir harus diisi',
+            'from.before' => 'Tanggal Awal harus lebih kecil dari Tanggal Akhir',
+        ]);
         $from = $request->from;
         $to = $request->to;
         $transactions = Transaction::whereBetween('payment_date', [$request->from, $request->to])->get();

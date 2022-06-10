@@ -1,6 +1,15 @@
 <x-app-layout>
 
     <x-slot name="main">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <h2 class="font-bold text-2xl">Rekap Laporan</h2>
         <div class="border rounded-lg p-4">
             <label for="">Dari</label>
