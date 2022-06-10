@@ -60,7 +60,7 @@
                         <label for="">Sampai : </label>
                         <input type="date" name="to" class="block bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
-                    <button type="submit" class="mt-4 bg-emerald-400 text-white py-2 px-4 rounded-xl">Simpan</button>
+                    <button type="submit" class="mt-4 bg-emerald-400 text-white py-3 px-4 rounded-xl">Cetak</button>
                 </form>
                 <div>
                 </div>

@@ -33,6 +33,7 @@
             $('#dataTable').DataTable();
 
         });
+
     </script>
 
 </head>

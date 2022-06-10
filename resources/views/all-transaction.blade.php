@@ -239,8 +239,8 @@
             </div>
         </div>
 
-        <div class="relative overflow-hidden border rounded-xl mt-4">
-            <table class="table-auto w-full ">
+        <div class="relative">
+            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 text-gray-500 text-left">#</th>
@@ -274,7 +274,7 @@
 
 
                             <td class="text-left border-b border-slate-100">
-                                <a href='{{ url("transaction/recap/2019/student/$items->id") }}' id="btnDetail"
+                                <a class="no-underline" href='{{ url("transaction/recap/2019/student/$items->id") }}' id="btnDetail"
                                     data-url='{{ url('/') }}' data-id={{$items->id}}>Lihat Detail</a>
 
                             </td>

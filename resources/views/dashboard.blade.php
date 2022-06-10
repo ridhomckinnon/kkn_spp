@@ -2,7 +2,7 @@
     <x-slot name="main">
 
         <div class="py-12">
-
+    
 
         </div>
 

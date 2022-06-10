@@ -31,7 +31,7 @@
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->gender }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->period->school_year }}</td>
                             <td class="text-left border-b border-slate-100">
-                                <a href='{{url("mutation/student/$data->id")}}'>Lihat Mutasi</a>
+                                <a class="no-underline" href='{{url("mutation/student/$data->id")}}'>Lihat Mutasi</a>
                             </td>
                         </tr>
                     @endforeach
