@@ -74,7 +74,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">NO Transaksi</th>
+                    <th scope="col">No Transaksi</th>
                     <th scope="col">SPP</th>
                     <th scope="col">Jumlah</th>
                 </tr>
@@ -87,7 +87,7 @@
                     <tr>
                         <th scope="row">{{ ++$no }}</th>
                         <td>{{ $data->no_payment }}</td>
-                        <td>{{ $data->bulan.'/'.$data->tahun }}</td>
+                        <td>{{ bulan($data->bulan).'/'.$data->tahun }}</td>
                         <td>{{ rupiah($data->jumlah) }}</td>
                       </tr>
                     @endforeach

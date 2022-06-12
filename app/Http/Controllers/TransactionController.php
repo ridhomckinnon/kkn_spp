@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TransactionController extends Controller
 {
@@ -66,14 +67,16 @@ class TransactionController extends Controller
         $this->validate($request,[
             'payment_date' => 'required'
         ]);
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $nopayment = substr(str_shuffle(Str::upper($permitted_chars)), 0, 17);;
 
-        $nopayment = mt_rand(1000000, 9999999);
         $items = $request->all();
         $items['id_student'] = $idStudent;
         $items['id_user'] = Auth::user()->id;
         $items['no_payment'] = $nopayment;
 
         Transaction::create($items);
+        Alert::toast('Data berhasil ditambahkan','success');
 
         return redirect()->back();
     }

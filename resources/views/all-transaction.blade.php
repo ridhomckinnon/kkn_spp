@@ -262,7 +262,7 @@
                             <td class="text-left font-light p-3 border-b border-slate-100"> {{ $items->nis }}
                             </td>
                             <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->name }}</td>
-                            <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->gender }}</td>
+                            <td class="text-left font-light p-3 border-b border-slate-100">{{ ($items->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                             <td class="text-left font-light p-3 border-b border-slate-100">
                                 <select name="" id="yearOpt" class="border rounded-lg py-2">
                                     <option value="2019" class="py-2">2019</option>

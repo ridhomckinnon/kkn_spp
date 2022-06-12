@@ -14,6 +14,8 @@
                 </ul>
             </div>
         @endif
+
+
         <div class="grid grid-cols-4 gap-4">
             <div class="border border-b-0 rounded-lg text-center">
                 <div class="bg-gray-100 py-2">Januari</div>
@@ -29,7 +31,7 @@
                     </span>
                 </div>
                 <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="1" data-tahun="{{ $year }}">Bayar</button>
+                    data-modal-toggle="payModal" data-bulan="1" data-tahun="{{ $year }}" {{$transactions->contains('bulan',1) ? 'disabled' :''}}>Bayar</button>
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">

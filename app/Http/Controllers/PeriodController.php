@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Period;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -15,8 +16,9 @@ class PeriodController extends Controller
      */
     public function index()
     {
-        $period = Period::all();
-        return view('setting', compact('period'));
+        $period = Period::orderBy('school_year', 'asc')->get();
+        $classes = Classes::orderBy('name', 'asc')->get();
+        return view('setting', compact('period','classes'));
     }
 
     /**
@@ -40,13 +42,18 @@ class PeriodController extends Controller
         $this->validate($request, [
             'school_year' => 'required',
             'nominal' => 'numeric',
+            'classes' => 'required',
+            'major' => 'required',
         ], [
             'school_year.required' => 'Tahun ajaran harus diisi',
             'nominal.numeric' => 'Nominal harus berupa angka',
+            'classes.required' => 'Kelas harus diisi',
+            'major.required' => 'Jurusan harus diisi',
         ]);
         $period = new Period;
         $period->fill($request->all());
         $period->save();
+
         Alert::toast('Tambah Data Berhasil','success');
         return redirect()->back();
     }

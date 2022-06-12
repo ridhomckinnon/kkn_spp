@@ -1,12 +1,14 @@
 <?php
 
-function rupiah($angka){
+function rupiah($angka)
+{
 
-	$hasil_rupiah = "Rp " . number_format($angka,0,',','.');
-	return $hasil_rupiah;
+    $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
+    return $hasil_rupiah;
 }
 
-function bulan($bulan){
+function bulan($bulan)
+{
     switch ($bulan) {
         case 1:
             $bulan = 'Januari';
@@ -50,3 +52,50 @@ function bulan($bulan){
     }
     return $bulan;
 }
+
+function religion($religion)
+{
+    switch ($religion) {
+        case "I":
+            $religion = 'Islam';
+            break;
+        case "KP":
+            $religion = 'Protestan';
+            break;
+        case "K":
+            $religion = 'Katolik';
+            break;
+        case "H":
+            $religion = 'Hindu';
+            break;
+        case "B":
+            $religion = 'Budha';
+            break;
+        default:
+            $religion = '-';
+            break;
+    }
+    return $religion;
+}
+
+function jurusan($jurusan)
+{
+    switch ($jurusan) {
+        case "TKJ":
+            $jurusan = 'Teknik Komputer Jaringan';
+            break;
+        case "BM":
+            $jurusan = 'Bisnis Manajement';
+            break;
+        case "TJKL":
+            $jurusan = 'Teknik Jaringan Komputer dan Layanan Bisnis';
+            break;
+
+        default:
+            $jurusan = '-';
+            break;
+    }
+
+    return $jurusan;
+}
+

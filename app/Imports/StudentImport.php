@@ -3,8 +3,9 @@
 namespace App\Imports;
 
 use App\Models\Student;
-use Maatwebsite\Excel\Concerns\Importable;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
@@ -33,12 +34,14 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation
     public function model(array $row)
     {
         return new Student([
-            'name' => $row['nama'],
+            'name' => Str::title($row['nama']),
             'id_classes' => $this->idClasses,
             'id_period' => $this->id_period,
             'phone' => $row['phone'],
             'nis' => $row['nis'],
-            'address' => $row['alamat'],
+            'nisn' => $row['nisn'],
+            'religion' => $row['religion'],
+            'address' => Str::lower($row['alamat']),
             'major' => $this->major,
             'gender' => $row['jenis_kelamin']
 
@@ -49,7 +52,7 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation
     {
         return [
             '*.nama' => 'required',
-            '*.nis' => 'required|unique:users,nis',
+            '*.nis' => 'required|unique:students,nis',
         ];
     }
 }

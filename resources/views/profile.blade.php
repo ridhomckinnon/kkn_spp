@@ -15,7 +15,9 @@
 
         <div class="">
             <div class="mb-4">
-                <div class="flex justify-center"><img src="img/logo/logo.png" alt=""></div>
+                <div class="flex justify-center">
+                    <img src='{{asset("logo").'/'.$user->school->logo}}' alt="">
+                </div>
                 <div class="text-center text-lg font-semibold">SMK Swasta Jambi Medan</div>
             </div>
             <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">

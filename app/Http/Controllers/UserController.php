@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -62,6 +63,7 @@ class UserController extends Controller
 
 
         User::create($req);
+        Alert::toast('Tambah Data Berhasil', 'success');
 
         return redirect()->back();
 
@@ -111,6 +113,7 @@ class UserController extends Controller
         }
 
         User::findOrFail($data['id'])->update($data);
+        Alert::toast('Update Data Berhasil', 'success');
 
         return redirect()->back();
     }
@@ -124,7 +127,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id)->delete();
-
+        Alert::toast('Hapus Data Berhasil', 'success');
         return redirect()->back();
     }
 }

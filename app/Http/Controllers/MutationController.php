@@ -22,7 +22,7 @@ class MutationController extends Controller
     {
         $student = Student::with('period','classes')->findOrFail($id);
 
-        $transactions = Transaction::with('student')->whereIdStudent($id)->get();
+        $transactions = Transaction::with('student')->whereIdStudent($id)->limit(10)->get();
 
         // return $transactions;
         return view('detail-mutation',compact('student','transactions'));
