@@ -1,6 +1,9 @@
 @section('title', 'Rekap Transaksi')
 
 <x-app-layout>
+    <x-slot name="heading">
+        <a href="" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
+    </x-slot>
     <x-slot name="main">
         @if ($errors->any())
             <div class="alert alert-danger">

@@ -1,6 +1,8 @@
 <x-app-layout>
+    <x-slot name="heading">
+        <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
+    </x-slot>
     <x-slot name="main">
-
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
                 <div>

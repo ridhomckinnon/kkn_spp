@@ -1,4 +1,7 @@
 <x-app-layout>
+    <x-slot name="heading">
+        <a href="/mutation" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
+    </x-slot>
     <x-slot name="main">
         <div class="">
 

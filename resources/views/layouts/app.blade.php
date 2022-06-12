@@ -40,10 +40,10 @@
 
 <body class="font-sans antialiased">
     <div class="flex min-h-screen bg-gray-100">
-        <aside class="border fixed inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto bg-white dark:bg-gray-800">
+        <aside class="fixed shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto bg-white dark:bg-gray-800">
 
-            <div class="h-full bg-white rounded dark:bg-gray-800">
-                <div class="shrink-0 flex px-3 border-b mb-2 h-16">
+            <div class="h-full   bg-white rounded dark:bg-gray-800">
+                <div class="shrink-0 flex px-3 mb-2 h-16">
                     <a href="{{ route('dashboard') }}" class="flex no-underline items-center text-black">
                         <div>
                             <x-application-logo class="block h-4 w-auto fill-current text-gray-600" />
@@ -54,8 +54,8 @@
                 <ul class="space-y-2 pl-0">
                     <li class="relative px-3">
                         <!-- <span class="absolute inset-y-0 left-0 w-1 bg-rose-500 rounded-tr-lg rounded-br-lg"></span> -->
-                        <a href=""
-                            class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                        <a href="/dashboard"
+                            class="{{ (request()->is('dashboard')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                             <span class="w-5 h-5 flex items-center justify-center"><i
                                     class="fa fa-chart-pie"></i></span>
                             <span class="ml-3">Dashboard</span>
@@ -91,7 +91,7 @@
 
                     <li class="px-3">
                         <a href="/student"
-                            class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('student')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-user"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Data Siswa</span>
                         </a>
@@ -116,7 +116,7 @@
                         <ul id="transaction" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="/mutation"
-                                    class="flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Mutasi</a>
+                                    class="{{ (request()->is('mutation')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Mutasi</a>
                             </li>
                             <li>
                                 <a href="/transaction"
@@ -126,7 +126,7 @@
                     </li>
                     <li class="px-3">
                         <a href="/report"
-                            class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('report')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-print"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Laporan</span>
                         </a>
@@ -134,7 +134,7 @@
 
                     <li class="px-3">
                         <a href="{{ route('user') }}"
-                            class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('user')) ? 'bg-rose-500 text-white' : '' }} flex items-center text-gray-900 no-underline hover:text-rose-500 p-2 text-base font-normal  rounded-lg dark:text-white dark:hover:bg-gray-700">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-users"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Operator</span>
                         </a>
@@ -143,7 +143,7 @@
                     @can('isAdmin')
                         <li class="px-3">
                             <a href="{{ route('profile') }}"
-                                class="flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                                class="{{ (request()->is('profile')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
                                 <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-school"></i></span>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Profile Sekolah</span>
                             </a>
@@ -155,15 +155,21 @@
         </aside>
 
         <!-- Page Content -->
-        <div class="flex flex-col flex-1 w-full lg:ml-64">
+        <div class="flex flex-col flex-1 w-full lg:ml-64 ">
             <header class="fixed z-20 bg-white md:w-10/12 w-screen">
                 @include('layouts.navigation')
 
             </header>
-            <main class="bg-white mx-4 mb-4 mt-24 py-4 px-4 sm:px-6 lg:px-8 rounded-xl">
+            <main class="mt-24">
+                <div class="main-heading mx-4 mb-4">
+                    {{ $heading }}
+                </div>
+                <div class="main-body bg-white mx-4 mb-4 py-4 px-4 sm:px-6 lg:px-8 shadow-sm rounded-xl">
+
+                    {{ $main }}
+                </div>
                 @include('sweetalert::alert')
 
-                {{ $main }}
 
             </main>
         </div>

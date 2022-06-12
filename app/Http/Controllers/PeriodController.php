@@ -39,11 +39,9 @@ class PeriodController extends Controller
     {
         $this->validate($request, [
             'school_year' => 'required',
-            'semester' => 'required',
             'nominal' => 'numeric',
         ], [
             'school_year.required' => 'Tahun ajaran harus diisi',
-            'semester.required' => 'Semester harus diisi',
             'nominal.numeric' => 'Nominal harus berupa angka',
         ]);
         $period = new Period;
