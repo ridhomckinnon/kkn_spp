@@ -39,12 +39,15 @@
 
             <h5 class="font-bold">Kalender SMKS Jambi Medan</h5>
         </div>
-        <div class="border shadow-md rounded-xl p-4 mt-4">
-            dadsa
-        </div>
-
-
-
-
+        <!-- <div class="border shadow-md rounded-xl p-4 mt-4">
+            </div> -->
+        <div class="datepicker" id="datepickerId" inline-datepicker></div>
     </x-slot>
 </x-app-layout>
+
+<script>
+    const datepickerEl = document.getElementById('datepickerId');
+    new Datepicker(datepickerEl, {
+        // options
+    });
+</script>

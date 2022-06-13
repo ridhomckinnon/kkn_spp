@@ -15,24 +15,23 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-5.1.3.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/59113285e4.js" crossorigin="anonymous"></script>
+    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/flowbite.js') }}"></script>
     <script src="{{ asset('js/datepicker.js') }}"></script>
-    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
 
-        });
 
     </script>
 
