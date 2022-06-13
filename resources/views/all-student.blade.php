@@ -82,9 +82,9 @@
                                             name="major">
                                             <option selected>Pilih Jurusan</option>
                                             <option value="TKJ">TKJ</option>
-                                            <option value="AK">Akutansi</option>
-                                            <option value="AP">Administrsai Perkantoran</option>
-                                            <option value="TKR">TKR</option>
+                                            <option value="TJKL">TJKL</option>
+                                            <option value="BM">Bisnis Manajemen</option>
+                                            <option value="AKL">AKL</option>
                                         </select>
                                     </div>
                                     <div>
@@ -144,6 +144,12 @@
                                     </div>
 
                                     <div>
+                                        <input type="number" name="nisn"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="NISN">
+                                    </div>
+
+                                    <div>
                                         <input type="nama" name="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Nama Siswa">
@@ -154,8 +160,8 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             name="gender">
                                             <option selected>Pilih Jenis Kelamin</option>
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita">Wanita</option>
+                                            <option value="L">Pria</option>
+                                            <option value="P">Wanita</option>
                                         </select>
                                     </div>
 
@@ -165,11 +171,25 @@
                                             name="major">
                                             <option selected>Pilih Jurusan</option>
                                             <option value="TKJ">TKJ</option>
-                                            <option value="AK">Akutansi</option>
-                                            <option value="AP">Administrsai Perkantoran</option>
-                                            <option value="TKR">TKR</option>
+                                            <option value="TJKL">TJKL</option>
+                                            <option value="BM">Bisnis Manajemen</option>
+                                            <option value="AKL">AKL</option>
                                         </select>
                                     </div>
+
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="religion">
+                                            <option selected>Pilih Agama</option>
+                                            <option value="I">Islam</option>
+                                            <option value="KP">Protestan</option>
+                                            <option value="K">Katholik</option>
+                                            <option value="H">Hindu</option>
+                                            <option value="B">Budha</option>
+                                        </select>
+                                    </div>
+
                                     <div>
                                         <input type="hidden" name="id_classes" value="{{ $idClass }}">
                                     </div>
@@ -242,6 +262,12 @@
                                     </div>
 
                                     <div>
+                                        <input type="number" name="nisn" id="nisn"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            placeholder="NISN">
+                                    </div>
+
+                                    <div>
                                         <input type="nama" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Nama Siswa" required>
@@ -252,8 +278,8 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             name="gender" id="gender">
                                             <option selected>Pilih Jenis Kelamin</option>
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita">Wanita</option>
+                                            <option value="L">Pria</option>
+                                            <option value="P">Wanita</option>
                                         </select>
                                     </div>
 
@@ -263,11 +289,25 @@
                                             name="major" id="major">
                                             <option selected>Pilih Jurusan</option>
                                             <option value="TKJ">TKJ</option>
-                                            <option value="AK">Akutansi</option>
-                                            <option value="AP">Administrsai Perkantoran</option>
-                                            <option value="TKR">TKR</option>
+                                            <option value="TJKL">TJKL</option>
+                                            <option value="BM">Bisnis Manajemen</option>
+                                            <option value="AKL">AKL</option>
                                         </select>
                                     </div>
+
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="religion" id="religion">
+                                            <option selected>Pilih Agama</option>
+                                            <option value="I">Islam</option>
+                                            <option value="KP">Protestan</option>
+                                            <option value="K">Katholik</option>
+                                            <option value="H">Hindu</option>
+                                            <option value="B">Budha</option>
+                                        </select>
+                                    </div>
+
                                     <div>
                                         <input type="hidden" name="id_classes" value="{{ $idClass }}">
                                     </div>
@@ -347,37 +387,37 @@
             </div>
         </div>
 
-        <div class="relative">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+        <div class="relative ">
+            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl ">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
+                        {{-- <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th> --}}
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">No</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">NIS</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Nama</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Jenis Kelamin</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Telepon</th>
-                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Alamat</th>
+                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Agama</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($students as $data)
-                        <tr>
-                            <td class="text-left font-light p-4 border-b border-slate-100">
+                        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                            {{-- <td class="text-left font-light p-4 border-b border-slate-100">
                                 <div class="flex items-center">
                                     <input id="checkbox-table-1" type="checkbox"
                                         class="w-4 h-4 text-sky-600 bg-gray-100 border-gray-300 rounded focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="checkbox-table-1" class="sr-only">checkbox</label>
                                 </div>
-                            </td>
+                            </td> --}}
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}
                             </td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->name }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->nis }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->gender }}</td>
+                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->name }}</td>
+                            <td class="text-left font-light p-4 border-b border-slate-100">{{ ($data->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->phone }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->address }}</td>
+                            <td class="text-left font-light p-4 border-b border-slate-100">{{ religion($data->religion) }}</td>
                             <td class="text-left border-b border-slate-100">
                                 <button
                                     class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
@@ -410,19 +450,19 @@
                 });
 
                 // Confirm Delete
-                $(".btnConfirm").click(function() {
+                $(document).on('click',".btnConfirm",function() {
                     var href = $(this).data('href');
                     $("#btnDelete").attr('href', href)
                 });
 
-                $('.btnEdit').click(function() {
+                $(document).on('click','.btnEdit',function() {
                     var id = $(this).data('id')
                     var url = $(this).data('url')
-                    $.get(url + "/student/" + id, function({
-                        data
-                    }) {
+                    $.get(url + "/student/" + id, function({data}) {
                         $('#idStudent').val(data.id);
                         $('#nis').val(data.nis);
+                        $('#nisn').val(data.nisn);
+                        $('#religion').val(data.religion);
                         $('#name').val(data.name);
                         $('#gender').val(data.gender);
                         $('#major').val(data.major);
@@ -430,6 +470,7 @@
                         $('#id_period').val(data.id_period);
                         $('#address').val(data.address);
                         $('#phone').val(data.phone);
+                        console.log(data);
                     })
                 })
             });

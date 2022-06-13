@@ -17,18 +17,18 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $students = Student::all();
         $periods = Period::all();
-        $classes = Classes::orderBy('name', 'asc')->get();
+        $classes = Classes::orderBy('name', 'asc')->filter($request)->get();
         return view('student', compact('students', 'periods', 'classes'));
     }
 
     public function classes($idClass)
     {
         $class = Classes::with('school')->findOrFail($idClass);
-        $students = Student::where('id_classes', $idClass)->orderBy('name', 'asc')->get();
+        $students = Student::where('id_classes', $idClass)->latest()->get();
         $periods = Period::all();
         $classes = Classes::all();
 
@@ -53,19 +53,25 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validate  = $this->validate($request, [
             'name' => 'required',
             'id_classes' => 'required',
             'id_period' => 'required',
             'phone' => 'numeric',
-            'nis' => 'required|unique:students'
+            'nis' => 'required|unique:students',
+            'nisn'  => 'required|unique:students',
+            'religion' => 'required',
+
         ],[
             'name.required' => 'Nama harus diisi',
             'id_classes.required' => 'Kelas harus diisi',
             'id_period.required' => 'Periode harus diisi',
             'phone.numeric' => 'Nomor telepon harus angka',
             'nis.required' => 'NIS harus diisi',
-            'nis.unique' => 'NIS sudah ada'
+            'nis.unique' => 'NIS sudah ada',
+            'nisn.required' => 'NISN harus diisi',
+            'nisn.unique' => 'NISN sudah ada',
+            'religion.required' => 'Agama harus diisi',
         ]);
 
         $students = Student::create($request->all());
@@ -82,7 +88,6 @@ class StudentController extends Controller
             "id_period" => $request->id_period,
             "major" => $request->major,
         ];
-
         Excel::import(new StudentImport($data), $request->file('file'));
         Alert::toast('Import Berhasil', 'success');
         return redirect()->back();
@@ -148,7 +153,10 @@ class StudentController extends Controller
             "id_period" => $request->id_period,
             "address" => $request->address,
             "phone" => $request->phone,
+            "nisn" => $request->nisn,
+            "religion" => $request->religion,
         ]);
+        Alert::toast('Edit Data Berhasil', 'success');
 
         return redirect()->back();
     }
@@ -162,6 +170,7 @@ class StudentController extends Controller
     public function destroy($id)
     {
         $students = Student::findOrFail($id)->delete();
+        Alert::toast('Hapus Data Berhasil', 'success');
 
         return redirect()->back();
     }

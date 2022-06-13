@@ -1,6 +1,7 @@
 <x-app-layout>
     <x-slot name="heading">
-        <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
+        <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i>
+            Kembali</a>
     </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -190,7 +191,7 @@
                                 <button
                                     class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
                                     data-modal-toggle="editModal" data-id="{{ $data->id }}"
-                                    data-url={{ url('/') }}><i class="fa-solid fa-pen-to-square"></i></button>
+                                    data-url={{ url('/') }} id="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
                                 <button
                                     class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 ml-2"
                                     data-modal-toggle="confirmModal"
@@ -211,20 +212,20 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+                // $.ajaxSetup({
+                //     headers: {
+                //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //     }
+                // });
 
                 // Confirm Delete
-                $(".btnConfirm").click(function() {
-                    var href = $(this).data('href');
-                    $("#btnDelete").attr('href', href)
+                $(document).on('click','.btnConfirm', function() {
+                    var url = $(this).data('href');
+                    $('#btnDelete').attr('href', url);
                 });
 
-                $('.btnEdit').click(function() {
+                // Update Modal
+                $(document).on('click', '.btnEdit', function() {
                     var id = $(this).data('id')
                     var url = $(this).data('url')
                     $.get(url + "/classes/" + id, function({data}) {

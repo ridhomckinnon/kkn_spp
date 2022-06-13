@@ -52,18 +52,41 @@
                                 <div class="p-6 space-y-6">
                                     @csrf
                                     <div>
-                                        <input type="text" name="school_year"
+                                        <input type="text" name="school_year" value="{{ old('school_year') }}"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Tahun Ajaran">
                                     </div>
                                     <div>
-                                        <input type="number" min="0" name="price_spp"
+                                        <input type="number" min="0" name="price_spp" value="{{ old('price_spp') }}"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Nominal">
                                     </div>
 
                                     <div>
-                                        <input type="text" name="status"
+                                        <select name="classes"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                            <option value="">Pilih Kelas</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="major">
+                                            <option selected>Pilih Jurusan</option>
+                                            <option value="TKJ">TKJ</option>
+                                            <option value="TJKL">TJKL</option>
+                                            <option value="BM">Bisnis Manajemen</option>
+                                            <option value="AKL">AKL</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div>
+                                        <input type="text" name="status" value="{{ old('status') }}"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Status">
                                     </div>
@@ -116,6 +139,28 @@
                                         <input type="number" min="0" name="price_spp" id="price_spp"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Nominal" required>
+                                    </div>
+
+                                    <div>
+                                        <select name="classes" id="classes"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                            <option value="">Pilih Kelas</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <select id="major"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            name="major">
+                                            <option selected>Pilih Jurusan</option>
+                                            <option value="TKJ">TKJ</option>
+                                            <option value="TJKL">TJKL</option>
+                                            <option value="BM">Bisnis Manajemen</option>
+                                            <option value="AKL">AKL</option>
+                                        </select>
                                     </div>
 
                                     <div>
@@ -182,6 +227,8 @@
                     <tr>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Tahun Ajaran</th>
+                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Jurusan</th>
+                        <th class="font-bold p-4 pl-4 text-gray-500 text-left">Kelas</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Nominal</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Status</th>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
@@ -194,7 +241,13 @@
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->school_year }}
                             </td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->price_spp }}</td>
+                            <td class="text-left font-light p-4 border-b border-slate-100">{{ jurusan($data->major) }}
+                            </td>
+                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->classes }}
+                            </td>
+
+                            <td class="text-left font-light p-4 border-b border-slate-100">
+                                {{ rupiah($data->price_spp) }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->status }}
                             </td>
 
@@ -232,18 +285,21 @@
                 });
 
                 // Confirm Delete
-                $(".btnConfirm").click(function() {
+                $(document).on('click',".btnConfirm",function() {
                     var href = $(this).data('href');
                     $("#btnDelete").attr('href', href)
                 });
 
-                $('.btnEdit').click(function() {
+                $(document).on('click','.btnEdit',function() {
                     var id = $(this).data('id')
                     var url = $(this).data('url')
                     $.get(url + "/period/" + id, function({
                         data
                     }) {
+                        console.log(data);
                         $('#idPeriod').val(data.id);
+                        $('#major').val(data.major);
+                        $('#classes').val(data.classes);
                         $('#school_year').val(data.school_year);
                         $('#price_spp').val(data.price_spp);
                         $('#status').val(data.status);

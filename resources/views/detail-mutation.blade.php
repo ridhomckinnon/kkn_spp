@@ -21,7 +21,8 @@
             </div>
             <div class="border rounded-xl p-4 mb-4">
                 <div class="">
-                    <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+                    <h4 class="font-semibold capitalize">Transaksi terakhir</h4>
+                    <table id="" class="table-auto w-full border overflow-hidden rounded-xl">
                         <thead class="bg-slate-100 mt-4">
                             <tr>
                                 <th class="font-bold p-4 text-gray-500 text-left">#</th>

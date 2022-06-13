@@ -253,12 +253,12 @@
                 });
 
                 // Confirm Delete
-                $(".btnConfirm").click(function() {
+                $(document).on('click',".btnConfirm",function() {
                     var href = $(this).data('href');
                     $("#btnDelete").attr('href', href)
                 });
 
-                $('.btnEdit').click(function() {
+                $(document).on('click','.btnEdit',function() {
                     var id = $(this).data('id')
                     var url = $(this).data('url')
                     $.get(url + "/user/" + id, function({

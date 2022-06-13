@@ -1,18 +1,22 @@
 <?php
 
 use App\Models\User;
+use App\Models\Classes;
+use App\Models\Student;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\PeriodController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Controllers\MutationController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -37,7 +41,14 @@ Route::get('/', function () {
 
 Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $student = Student::count();
+        $jurusan = Student::select('major', DB::raw('count(*) as total'))
+        ->groupBy('major')
+        ->pluck('total','major')->count();
+
+        $class = Classes::count();
+        $transaction = Transaction::sum('jumlah');
+        return view('dashboard', compact('student', 'class','transaction','jurusan'));
     })->name('dashboard');
 
     Route::prefix('student')->group(function () {

@@ -11,6 +11,14 @@ class Classes extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function scopeFilter($query, $request)
+    {
+        if ($request->has('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+        return $query;
+    }
+
     /**
      * Get the student that owns the Classes
      *
