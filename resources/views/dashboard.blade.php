@@ -18,7 +18,7 @@
             <div class="border shadow-md rounded-xl p-4">
                <div class="flex items-center justify-between">
                 <h4>Jurusan</h4>
-                <h3 class="text-gray-500">102</h3>
+                <h3 class="text-gray-500">{{$jurusan}}</h3>
                </div>
             </div>
             <div class="border shadow-md rounded-xl p-4">
@@ -29,8 +29,8 @@
             </div>
             <div class="border shadow-md rounded-xl p-4">
                <div class="flex items-center justify-between">
-                <h4>Siswa</h4>
-                <h3 class="text-gray-500">102</h3>
+                <h4>Pemasukan</h4>
+                <h3 class="text-base text-gray-500">{{rupiah($transaction)}}</h3>
                </div>
             </div>
 

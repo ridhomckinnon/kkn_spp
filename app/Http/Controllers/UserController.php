@@ -60,8 +60,7 @@ class UserController extends Controller
         $req = $request->all();
         $school_id = Auth::user()->id_school;
         $req['id_school'] = $school_id;
-
-
+        $req['password'] = bcrypt($req['password']);
         User::create($req);
         Alert::toast('Tambah Data Berhasil', 'success');
 
