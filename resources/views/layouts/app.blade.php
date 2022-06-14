@@ -40,7 +40,7 @@
 
 <body class="font-sans antialiased">
     <div class="flex min-h-screen bg-gray-100">
-        <aside class="fixed shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto bg-white dark:bg-gray-800">
+        <aside class="fixed shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto lg:block sm:hidden bg-white dark:bg-gray-800">
 
             <div class="h-full   bg-white rounded dark:bg-gray-800">
                 <div class="shrink-0 flex px-3 mb-2 h-16">
