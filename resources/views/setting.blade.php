@@ -236,7 +236,7 @@
                 </thead>
                 <tbody>
                     @foreach ($period as $data)
-                        <tr>
+                        <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
 
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->school_year }}
