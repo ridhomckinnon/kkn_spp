@@ -75,6 +75,8 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
 
     Route::prefix('classes')->group(function () {
         Route::get('/', [ClassesController::class, 'index'])->name('classes');
+        // Change Status
+        Route::get('/change/{classes}', [ClassesController::class, 'changeStatus'])->name('change.classes');
         Route::get('/{classes}', [ClassesController::class, 'show'])->name('show.classes');
         Route::post('/', [ClassesController::class, 'store'])->name('post.classes');
         Route::get('/delete/{classes}', [ClassesController::class, 'destroy'])->name('destroy.classes');
@@ -91,6 +93,9 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
 
     Route::prefix('transaction')->group(function () {
         Route::get('/',[TransactionController::class, 'classes'])->name('transaction');
+
+        Route::get('/delete/{tahun}/{bulan}/{idStudent}',[TransactionController::class, 'destroy'])->name('transaction.destroy');
+
         Route::get('/detail',[TransactionController::class, 'index'])->name('transaction-detail');
         Route::post('/payment/{idStudent}',[TransactionController::class, 'store'])->name('transaction.payment');
         Route::get('/classes/{id_classes}',[TransactionController::class, 'student'])->name('transaction.student');

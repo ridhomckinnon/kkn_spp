@@ -200,7 +200,7 @@
         </div>
 
         <div class="relative">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+            <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">No</th>
@@ -213,7 +213,7 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $data)
-                        <tr>
+                        <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}
                             </td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->name }}</td>
@@ -222,11 +222,11 @@
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->role }}</td>
                             <td class="text-left border-b border-slate-100">
                                 <button
-                                    class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
+                                    class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="editModal" data-url={{ url('/') }}
                                     data-id="{{ $data->id }}"><i class="fa-solid fa-pen-to-square"></i></button>
                                 <button
-                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 ml-2"
+                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="confirmModal"
                                     data-href="{{ url('user/delete') . '/' . $data->id }}"><i
                                         class="fa-solid fa-trash"></i></button>

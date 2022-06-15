@@ -1,1 +1,6 @@
-
+.dataTable{
+    width: 100%;
+}
+table.dataTable.no-footer{
+    border: none;
+}

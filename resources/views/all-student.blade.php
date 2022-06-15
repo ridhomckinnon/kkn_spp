@@ -30,7 +30,7 @@
                 </button>
 
                 <a
-                    class="bg-sky-500 px-4 py-2 text-sm text-white bg-gray-800 rounded-xl ml-4 w-auto block text-white hover:bg-gray-200 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
+                    class="bg-sky-500 px-4 py-2 text-sm text-white bg-gray-800 rounded-xl ml-4 w-auto block text-white hover:bg-gray-200 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center no-underline"
                     href="{{asset('import/studentImport.xlsx')}}" download> <i class="fa-solid fa-file"></i> Download Template
                 </a>
 
@@ -70,7 +70,7 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option selected>Periode</option>
                                             @foreach ($periods as $period)
-                                                <option value="{{ $period->id }}">{{ $period->school_year }}
+                                                <option value="{{ $period->id }}">{{ $period->school_year .' - '. jurusan($period->major) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -199,7 +199,7 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option selected>Periode</option>
                                             @foreach ($periods as $period)
-                                                <option value="{{ $period->id }}">{{ $period->school_year }}
+                                                <option value="{{ $period->id }}">{{ $period->school_year .' - '. jurusan($period->major) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -317,7 +317,7 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option selected>Periode</option>
                                             @foreach ($periods as $period)
-                                                <option value="{{ $period->id }}">{{ $period->school_year }}
+                                                <option value="{{ $period->id }}">{{ $period->school_year .' - '. jurusan($period->major) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -388,7 +388,7 @@
         </div>
 
         <div class="relative ">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl ">
+            <table class="dataTable table-auto w-full border overflow-hidden rounded-xl ">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         {{-- <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th> --}}
@@ -403,7 +403,7 @@
                 </thead>
                 <tbody>
                     @foreach ($students as $data)
-                        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                        <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
                             {{-- <td class="text-left font-light p-4 border-b border-slate-100">
                                 <div class="flex items-center">
                                     <input id="checkbox-table-1" type="checkbox"
@@ -420,14 +420,14 @@
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ religion($data->religion) }}</td>
                             <td class="text-left border-b border-slate-100">
                                 <button
-                                    class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
+                                    class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="editModal" data-url={{ url('/') }}
-                                    data-id="{{ $data->id }}"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    data-id="{{ $data->id }}"><i class="fa-solid w-4 h-4 fa-pen-to-square"></i></button>
                                 <button
-                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 ml-2"
+                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="confirmModal"
                                     data-href="{{ url('student/delete') . '/' . $data->id }}"><i
-                                        class="fa-solid fa-trash"></i></button>
+                                        class="fa-solid w-4 h-4 fa-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach

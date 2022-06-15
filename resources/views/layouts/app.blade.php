@@ -16,16 +16,16 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-5.1.3.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/semantic.min.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ asset('css/dataTables.semanticui.min.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
     <!-- Scripts -->
-    <script src="https://kit.fontawesome.com/59113285e4.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/59113285e4.js" crossorigin="anonymous"></script> -->
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('js/flowbite.js') }}"></script>
 
     <script src="{{ asset('js/datepicker.js') }}"></script>
@@ -40,9 +40,9 @@
 
 <body class="font-sans antialiased">
     <div class="flex min-h-screen bg-gray-100">
-        <aside class="fixed shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto lg:block sm:hidden bg-white dark:bg-gray-800">
+        <aside class="fixed shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto dark:bg-gray-800">
 
-            <div class="h-full   bg-white rounded dark:bg-gray-800">
+            <div class="h-full bg-white rounded dark:bg-gray-800">
                 <div class="shrink-0 flex px-3 mb-2 h-16">
                     <a href="{{ route('dashboard') }}" class="flex no-underline items-center text-black">
                         <div>
@@ -55,7 +55,7 @@
                     <li class="relative px-3">
                         <!-- <span class="absolute inset-y-0 left-0 w-1 bg-rose-500 rounded-tr-lg rounded-br-lg"></span> -->
                         <a href="/dashboard"
-                            class="{{ (request()->is('dashboard')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('dashboard')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i
                                     class="fa fa-chart-pie"></i></span>
                             <span class="ml-3">Dashboard</span>
@@ -79,11 +79,11 @@
                             <ul id="setting" class="hidden py-2 space-y-2">
                                 <li>
                                     <a href="/classes"
-                                        class="flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Kelas</a>
+                                        class="{{ (request()->is('classes')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Kelas</a>
                                 </li>
                                 <li>
                                     <a href="/period"
-                                        class="flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Periode</a>
+                                        class="{{ (request()->is('period')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Periode</a>
                                 </li>
                             </ul>
                         </li>
@@ -91,7 +91,7 @@
 
                     <li class="px-3">
                         <a href="/student"
-                            class="{{ (request()->is('student')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('student')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-user"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Data Siswa</span>
                         </a>
@@ -116,17 +116,17 @@
                         <ul id="transaction" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="/mutation"
-                                    class="{{ (request()->is('mutation')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Mutasi</a>
+                                    class="{{ (request()->is('mutation')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Mutasi</a>
                             </li>
                             <li>
                                 <a href="/transaction"
-                                    class="flex items-center no-underline hover:text-rose-500 p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700">Pembayaran</a>
+                                    class="{{ (request()->is('transaction')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Pembayaran</a>
                             </li>
                         </ul>
                     </li>
                     <li class="px-3">
                         <a href="/report"
-                            class="{{ (request()->is('report')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('report')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-print"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Laporan</span>
                         </a>
@@ -134,7 +134,7 @@
 
                     <li class="px-3">
                         <a href="{{ route('user') }}"
-                            class="{{ (request()->is('user')) ? 'bg-rose-500 text-white' : '' }} flex items-center text-gray-900 no-underline hover:text-rose-500 p-2 text-base font-normal  rounded-lg dark:text-white dark:hover:bg-gray-700">
+                            class="{{ (request()->is('user')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-users"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Operator</span>
                         </a>
@@ -143,7 +143,7 @@
                     @can('isAdmin')
                         <li class="px-3">
                             <a href="{{ route('profile') }}"
-                                class="{{ (request()->is('profile')) ? 'bg-rose-500 text-white' : '' }} flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700">
+                                class="{{ (request()->is('profile')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}>
                                 <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-school"></i></span>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Profile Sekolah</span>
                             </a>

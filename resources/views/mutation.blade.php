@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="relative">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+            <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 mt-4">
                     <tr>
                         <th class="font-bold p-4 text-gray-500 text-left">#</th>
@@ -25,12 +25,12 @@
                 </thead>
                 <tbody>
                     @foreach ($students as $data)
-                        <tr>
+                        <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $loop->iteration }}
                             </td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->nis }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->name }}</td>
-                            <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->gender }}</td>
+                            <td class="text-left font-light p-4 border-b border-slate-100">{{ ($data->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->period->school_year }}</td>
                             <td class="text-left border-b border-slate-100">
                                 <a class="no-underline" href='{{url("mutation/student/$data->id")}}'>Lihat Mutasi</a>

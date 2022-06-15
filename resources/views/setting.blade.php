@@ -222,7 +222,7 @@
         </div>
 
         <div class="relative">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+            <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
@@ -254,14 +254,14 @@
 
                             <td class="text-left border-b border-slate-100">
                                 <button
-                                    class="btnEdit  bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 mr-2"
+                                    class="btnEdit  bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-1"
                                     data-modal-toggle="editModal" data-id="{{ $data->id }}"
-                                    data-url={{ url('/') }}><i class="fa-solid fa-pen-to-square"></i></button>
+                                    data-url={{ url('/') }}><i class="fa-solid w-4 h-4 fa-pen-to-square"></i></button>
                                 <button
-                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 w-8 h-8 ml-2"
+                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="confirmModal"
                                     data-href=" {{ url('period/delete') . '/' . $data->id }}"><i
-                                        class="fa-solid fa-trash"></i></button>
+                                        class="fa-solid w-4 h-4 fa-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach

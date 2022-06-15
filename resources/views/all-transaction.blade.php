@@ -243,7 +243,7 @@
         </div>
 
         <div class="relative">
-            <table id="dataTable" class="table-auto w-full border overflow-hidden rounded-xl">
+            <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 text-gray-500 text-left">#</th>
