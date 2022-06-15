@@ -77,10 +77,14 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             name="major">
                                             <option selected>Pilih Jurusan</option>
-                                            <option value="TKJ">TKJ</option>
-                                            <option value="TJKL">TJKL</option>
-                                            <option value="BM">Bisnis Manajemen</option>
-                                            <option value="AKL">AKL</option>
+                                            <option value="TJKL">Teknik Jaringan Komputer dan Layanan Bisnis </option>
+
+                                            <option value="TKJ">Teknik Komputer Jaringan </option>
+                                            <option value="PM">Pemesinan</option>
+                                            <option value="BM">Manajemen Perkantoran dan Layanan Bisnis</option>
+                                            <option value="AKL">Akuntansi dan Keuangan Lembaga</option>
+                                            <option value="BDP">Bisnis Daring dan Pemasaran</option>
+                                            <option value="OTKP">Otomatisasi dan Tata Kelola Perkantoran</option>
                                         </select>
                                     </div>
 
@@ -156,10 +160,14 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             name="major">
                                             <option selected>Pilih Jurusan</option>
-                                            <option value="TKJ">TKJ</option>
-                                            <option value="TJKL">TJKL</option>
-                                            <option value="BM">Bisnis Manajemen</option>
-                                            <option value="AKL">AKL</option>
+                                            <option value="TKJ">Teknik Komputer Jaringan </option>
+                                            <option value="TJKL">Teknik Jaringan Komputer dan Layanan Bisnis </option>
+
+                                            <option value="PM">Pemesinan</option>
+                                            <option value="BM">Manajemen Perkantoran dan Layanan Bisnis</option>
+                                            <option value="AKL">Akuntansi dan Keuangan Lembaga</option>
+                                            <option value="BDP">Bisnis Daring dan Pemasaran</option>
+                                            <option value="OTKP">Otomatisasi dan Tata Kelola Perkantoran</option>
                                         </select>
                                     </div>
 
