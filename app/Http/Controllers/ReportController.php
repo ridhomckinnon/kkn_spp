@@ -28,8 +28,10 @@ class ReportController extends Controller
         $to = $request->to;
         $transactions = Transaction::whereBetween('payment_date', [$request->from, $request->to])->get();
         $user = auth()->user();
+        $total = Transaction::sum('jumlah');
 
-        $pdf = PDF::loadView('pdf.rekap', compact('transactions','from','to','user'));
+
+        $pdf = PDF::loadView('pdf.rekap', compact('transactions','from','to','user','total'));
 
         return $pdf->stream();
     }

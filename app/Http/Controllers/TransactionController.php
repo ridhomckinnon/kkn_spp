@@ -121,8 +121,10 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $transaction)
+    public function destroy($tahun,$bulan,$idStudent)
     {
-        //
+        $transaction = Transaction::whereTahun($tahun)->whereBulan($bulan)->whereIdStudent($idStudent)->delete();
+        Alert::toast('Transaksi Berhasil Dibatalkan','success');
+        return redirect()->back();
     }
 }

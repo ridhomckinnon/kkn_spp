@@ -22,7 +22,7 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',1))
+                        @if ($transactions->contains('bulan', 1))
                             Lunas
                         @else
                             belum bayar
@@ -30,8 +30,18 @@
 
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="1" data-tahun="{{ $year }}" {{$transactions->contains('bulan',1) ? 'disabled' :''}}>Bayar</button>
+
+                @if ($transactions->contains('bulan', 1))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 1, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="1" data-tahun="{{ $year }}">Bayar</button>
+                @endif
+
+
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -39,15 +49,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',2))
+                        @if ($transactions->contains('bulan', 2))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="2" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 2))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 2, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="2" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -55,15 +72,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',3))
+                        @if ($transactions->contains('bulan', 3))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="3" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 3))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 3, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="3" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -71,15 +95,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',4))
+                        @if ($transactions->contains('bulan', 4))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="4" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 4))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 4, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="4" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -87,15 +118,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',5))
+                        @if ($transactions->contains('bulan', 5))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="5" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 5))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 5, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="5" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -103,15 +141,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',6))
+                        @if ($transactions->contains('bulan', 6))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="6" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 6))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 6, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="6" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -119,15 +164,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',7))
+                        @if ($transactions->contains('bulan', 7))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="7" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 7))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 7, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="7" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -135,15 +187,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',8))
-                        Lunas
-                    @else
-                        belum bayar
-                    @endif
+                        @if ($transactions->contains('bulan', 8))
+                            Lunas
+                        @else
+                            belum bayar
+                        @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="8" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 8))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 8, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="8" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -151,15 +210,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',9))
+                        @if ($transactions->contains('bulan', 9))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="9" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 9))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 9, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="9" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -167,15 +233,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',10))
+                        @if ($transactions->contains('bulan', 10))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="10" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 10))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 10, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="10" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -183,15 +256,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',11))
+                        @if ($transactions->contains('bulan', 11))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="11" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 11))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 11, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="11" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
             <div class="border border-b-0 rounded-lg text-center">
@@ -199,15 +279,22 @@
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
                     <span class="bg-sky-200 rounded-lg pb-1 text-white px-2">
-                        @if ($transactions->contains('bulan',12))
+                        @if ($transactions->contains('bulan', 12))
                             Lunas
                         @else
                             belum bayar
                         @endif
                     </span>
                 </div>
-                <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
-                    data-modal-toggle="payModal" data-bulan="12" data-tahun="{{ $year }}">Bayar</button>
+                @if ($transactions->contains('bulan', 12))
+                    <button
+                        onclick="location.href='{{ route('transaction.destroy', ['bulan' => 12, 'tahun' => $year, 'idStudent' => $student->id]) }}'"
+                        class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" data-bulan="1"
+                        data-tahun="{{ $year }}">Batalkan Transaksi</button>
+                @else
+                    <button class="bg-emerald-400 py-2 w-full text-white rounded-b-lg payModal" type="button"
+                        data-modal-toggle="payModal" data-bulan="12" data-tahun="{{ $year }}">Bayar</button>
+                @endif
             </div>
 
 
@@ -238,7 +325,8 @@
                                 @csrf
                                 <input type="hidden" name="bulan" value="" id="bulan">
                                 <input type="hidden" name="tahun" value="{{ $year }}" id="tahun">
-                                <input type="hidden" name="id_classes" value="{{ $students->classes->id }}" id="tahun">
+                                <input type="hidden" name="id_classes" value="{{ $students->classes->id }}"
+                                    id="tahun">
 
                                 <!-- <div>
                                     <input type="date" name="payment_date"
@@ -260,7 +348,8 @@
                                         value="{{ $students->period->price_spp }}">
                                 </div>
                                 <div>
-                                    <textarea type="text" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    <textarea type="text" name="description"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                         placeholder="Deskripsi"></textarea>
                                 </div>
 

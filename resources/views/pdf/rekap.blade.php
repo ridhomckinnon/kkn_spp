@@ -25,7 +25,7 @@
                     <p>{{ $user->school->address }}</p>
                 </td>
                 <td>
-                    <h4>Transaksi Pembayaran</h4>
+                    <h4>Rekap Transaksi</h4>
                 </td>
             </tr>
         </table>
@@ -36,7 +36,7 @@
             <div style="float: left; width: 50%">
                 <table>
                     <tr>
-                        <td  width=190">Dari Tanggal</td>
+                        <td width=190">Dari Tanggal</td>
                         <td style="width:30px">:</td>
                         <td>{{ $from }}</td>
                     </tr>
@@ -80,17 +80,21 @@
                 </tr>
             </thead>
             <tbody>
-                    @php
-                        $no = 0;
-                    @endphp
-                    @foreach ($transactions as $data)
+                @php
+                    $no = 0;
+                @endphp
+                @foreach ($transactions as $data)
                     <tr>
                         <th scope="row">{{ ++$no }}</th>
                         <td>{{ $data->no_payment }}</td>
-                        <td>{{ bulan($data->bulan).'/'.$data->tahun }}</td>
+                        <td>{{ bulan($data->bulan) . '/' . $data->tahun }}</td>
                         <td>{{ rupiah($data->jumlah) }}</td>
-                      </tr>
-                    @endforeach
+                    </tr>
+                @endforeach
+                <tr>
+                    <td colspan="3" align="right"><b>Total: </b></td>
+                    <td>{{ rupiah($total) }}</td>
+                </tr>
             </tbody>
         </table>
     </div>
