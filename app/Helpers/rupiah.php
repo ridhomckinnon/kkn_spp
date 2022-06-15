@@ -90,6 +90,19 @@ function jurusan($jurusan)
         case "TJKL":
             $jurusan = 'Teknik Jaringan Komputer dan Layanan Bisnis';
             break;
+        case "PM":
+            $jurusan = 'Pemesinan';
+            break;
+        case "AKL":
+            $jurusan = 'Akuntansi dan Keuangan Lembaga';
+            break;
+        case "BDP":
+            $jurusan = 'Bisnis Daring dan Pemasaran';
+            break;
+        case "OTKP":
+            $jurusan = 'Otomatisasi dan Tata Kelola Perkantoran';
+            break;
+
 
         default:
             $jurusan = '-';
@@ -98,4 +111,3 @@ function jurusan($jurusan)
 
     return $jurusan;
 }
-
