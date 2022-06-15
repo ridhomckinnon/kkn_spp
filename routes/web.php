@@ -75,6 +75,8 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
 
     Route::prefix('classes')->group(function () {
         Route::get('/', [ClassesController::class, 'index'])->name('classes');
+        // Change Status
+        Route::get('/change/{classes}', [ClassesController::class, 'changeStatus'])->name('change.classes');
         Route::get('/{classes}', [ClassesController::class, 'show'])->name('show.classes');
         Route::post('/', [ClassesController::class, 'store'])->name('post.classes');
         Route::get('/delete/{classes}', [ClassesController::class, 'destroy'])->name('destroy.classes');

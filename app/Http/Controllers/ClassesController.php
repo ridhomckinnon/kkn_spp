@@ -16,8 +16,9 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        $classes = Classes::latest()->get();
-        return view('classes', compact('classes'));
+        $classes = Classes::latest()->whereisActive('active')->get();
+        $inActiveClasses = Classes::latest()->whereisActive('inactive')->get();
+        return view('classes', compact('classes', 'inActiveClasses'));
     }
 
     /**
@@ -106,6 +107,22 @@ class ClassesController extends Controller
     {
         $classes = Classes::findOrFail($id)->delete();
         Alert::toast('Hapus Data Berhasil ', 'success');
+        return redirect()->back();
+    }
+
+    public function changeStatus($id)
+    {
+        $classes = Classes::findOrFail($id);
+        if ($classes->is_active == 'active') {
+            $classes->update([
+                'is_active' => 'inactive'
+            ]);
+        } else {
+            $classes->update([
+                'is_active' => 'active'
+            ]);
+        }
+        Alert::toast('Update Status Berhasil ', 'success');
         return redirect()->back();
     }
 }

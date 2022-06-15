@@ -62,7 +62,7 @@
                         <h5 class="font-bold">Kalender</h5>
                     </div>
                     <div class="mt-4" style="height:355px;width:100%">
-                        <div class="datepicker" id="datepickerId" inline-datepicker ></div>
+                        <div class="datepicker" id="datepickerId" inline-datepicker data-date="now()" style="width: 100%"></div>
                     </div>
                 </div>
             </div>
@@ -75,5 +75,6 @@
 <script>
     const datepickerEl = document.getElementById('datepickerId');
     new Datepicker(datepickerEl, {
+        // format: 'mm/dd/yyyy' // "setDate" : new Date(),
     });
 </script>
