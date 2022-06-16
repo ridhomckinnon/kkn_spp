@@ -24,10 +24,13 @@ class ReportController extends Controller
             'to.required' => 'Tanggal Akhir harus diisi',
             'from.before' => 'Tanggal Awal harus lebih kecil dari Tanggal Akhir',
         ]);
-        $from = $request->from;
-        $to = $request->to;
-        $transactions = Transaction::whereBetween('payment_date', [$request->from, $request->to])->get();
+
+        $from = date('Y-m-d',strtotime($request->from));
+        $to = date('Y-m-d',strtotime($request->to));
+
+        $transactions = Transaction::whereBetween('payment_date', [$from,$to])->get();
         $user = auth()->user();
+
         $total = Transaction::sum('jumlah');
 
 

@@ -30,16 +30,15 @@ class MutationController extends Controller
 
     public function cetak(Request $request,$id)
     {
-        $from = $request->from;
-        $to = $request->to;
+        $from = date('Y-m-d',strtotime($request->from));
+        $to = date('Y-m-d',strtotime($request->to));
 
         $student = Student::with('period','classes.school')->findOrFail($id);
         $transactions = Transaction::with('student')
                         ->whereIdStudent($id)
-                        ->whereBetween('created_at',[$request->from,$request->to])
+                        ->whereBetween('payment_date',[$from,$to])
                         ->get();
 
-        // return $transactions;
 
         $pdf = PDF::loadView('pdf.mutation', compact('transactions','student','from','to'));
 
