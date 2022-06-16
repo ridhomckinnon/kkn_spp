@@ -18,7 +18,7 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $transactions = Transaction::all();
         $periods = Period::all();
@@ -26,11 +26,11 @@ class TransactionController extends Controller
         return view('all-transaction', compact('transactions','periods','students'));
     }
 
-    public function classes()
+    public function classes(Request $request)
     {
         $students = Student::all();
         $periods = Period::all();
-        $classes = Classes::orderBy('name', 'asc')->get();
+        $classes = Classes::orderBy('name', 'asc')->filter($request)->get();
         return view('transaction', compact('students','periods','classes'));
     }
 
