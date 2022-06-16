@@ -9,20 +9,14 @@
     <title>@yield('title')</title>
 
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
-        rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('css/semantic.min.css') }}"> -->
-    <!-- <link rel="stylesheet" href="{{ asset('css/dataTables.semanticui.min.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
     <!-- Scripts -->
-    <!-- <script src="https://kit.fontawesome.com/59113285e4.js" crossorigin="anonymous"></script> -->
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
