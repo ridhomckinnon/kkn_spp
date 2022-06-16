@@ -6,7 +6,7 @@
         <div class="main-title mb-4">
             <h3 class="font-bold">Pilih Kelas</h3>
         </div>
-        <div class="overflow-y-auto  " style="">
+        <div class="overflow-y-auto " style="">
             <div class="w-4/6 border rounded-xl px-4 pt-4">
                 <form action="{{route('student')}}" method="GET">
                     <div class="mb-4 relative">
@@ -16,7 +16,7 @@
 
                         <button class="bg-rose-400 absolute rounded-xl right-2 top-2 py-1 px-3 text-white">Cari</button>
 
-                        <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
+                        <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
                     </div>
 
                 </form>

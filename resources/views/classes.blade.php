@@ -272,7 +272,7 @@
                                     <td class="text-left border-b border-slate-100">
                                     <form class="inline" action="{{route('change.classes',['classes' => $data->id])}}">
                                         <button
-                                            class="btnNonactive bg-emerald-500 font-light rounded-lg text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 py-1 px-2 mx-2"
+                                            class="btnNonactive bg-emerald-500 font-light rounded-lg text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 py-1 px-2"
                                             ><i class="fa-solid w-4 h-4 fa-power-off"></i></button>
 
                                     </form>

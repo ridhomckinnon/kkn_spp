@@ -266,7 +266,7 @@
                                     data-modal-toggle="editModal" data-id="{{ $data->id }}"
                                     data-url={{ url('/') }}><i class="fa-solid w-4 h-4 fa-pen-to-square"></i></button>
                                 <button
-                                    class="btnConfirm bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
+                                    class="btnConfirm bg-red-500 font-light rounded-lg text-white hover:bg-red-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="confirmModal"
                                     data-href=" {{ url('period/delete') . '/' . $data->id }}"><i
                                         class="fa-solid w-4 h-4 fa-trash"></i></button>

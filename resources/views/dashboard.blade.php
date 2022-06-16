@@ -41,8 +41,8 @@
                 <div class="sub-title">
                     <h5 class="font-bold">Transaksi Terakhir</h5>
                 </div>
-                <div class="table -xl mt-4" style="height:355px">
-                    <table id="" class="table-auto w-full border overflow-hidden rounded-xl">
+                <div class=" mt-4" style="height:355px">
+                    <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
                         <thead class="bg-slate-100 text-white border-b">
                             <th class="font-bold p-2 pl-2 text-gray-500 text-left">#</th>
                             <th class="font-bold p-2 pl-2 text-gray-500 text-left">Tanggal</th>
