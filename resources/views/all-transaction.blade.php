@@ -271,7 +271,7 @@
                             <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->name }}</td>
                             <td class="text-left font-light p-3 border-b border-slate-100">{{ ($items->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                             <td class="text-left font-light p-3 border-b border-slate-100">
-                                <select name="" id="yearOpt" class="border rounded-lg py-2">
+                                <select name="" id="yearOpt" class="yearOpt border rounded-lg py-2">
                                     <option value="2019" class="py-2">2019</option>
                                     <option value="2020" class="py-2">2020</option>
                                     <option value="2021" class="py-2">2021</option>
@@ -279,13 +279,14 @@
                                     <option value="2023" class="py-2">2023</option>
                                     <option value="2024" class="py-2">2024</option>
                                     <option value="2025" class="py-2">2025</option>
+                                    <option value="2026" class="py-2">2026</option>
                                 </select>
                             </td>
 
 
                             <td class="text-left border-b border-slate-100">
-                                <a class="no-underline" href='{{ url("transaction/recap/2019/student/$items->id") }}' id="btnDetail"
-                                    data-url='{{ url('/') }}' data-id={{$items->id}}>Lihat Detail</a>
+                                <button class="no-underline btnDetail" id="btnDetail"
+                                    data-url='{{ url('/') }}' data-id={{$items->id}}>Lihat Detail</button>
 
                             </td>
                         </tr>
@@ -303,13 +304,14 @@
         <script>
             $(document).ready(function() {
 
-                $('#yearOpt').on('change', function(e) {
-                    var optionSelected = $("option:selected", this);
-                    var valueSelected = this.value;
-                    var url = $("#btnDetail").data('url')
-                    var id = $("#btnDetail").data('id')
-                    var href = `${url}/transaction/recap/${valueSelected}/student/${id}`
-                    $("#btnDetail").attr('href', href)
+                $(document).on('click','.btnDetail',function(e) {
+                    e.preventDefault();
+                    var year = $(this).closest('tr').find('.yearOpt').val();
+
+                    var url = $(this).data('url')
+                    var id = $(this).data('id')
+                    var href = `${url}/transaction/recap/${year}/student/${id}`
+                    window.location.href = href;
                 });
             });
         </script>

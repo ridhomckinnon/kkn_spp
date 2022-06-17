@@ -95,8 +95,8 @@
                         <td>{{ bulan($data->bulan).' / ' .$data->tahun }}</td>
                         <td>{{ rupiah($data->jumlah) }}</td>
                       </tr>
-                    @endforeach --}}
-            {{-- </tbody>
+                    @endforeach
+            </tbody>
         </table>
     </div>
     {{-- </div> --}}

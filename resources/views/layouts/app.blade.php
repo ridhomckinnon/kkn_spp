@@ -25,10 +25,7 @@
     <script src="{{ asset('js/datepicker.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script>
-
-
-    </script>
+    <script></script>
 
 </head>
 
@@ -49,7 +46,7 @@
                     <li class="relative px-3">
                         <!-- <span class="absolute inset-y-0 left-0 w-1 bg-rose-500 rounded-tr-lg rounded-br-lg"></span> -->
                         <a href="/dashboard"
-                            class="{{ (request()->is('dashboard')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
+                            class="{{ request()->is('dashboard') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i
                                     class="fa fa-chart-pie"></i></span>
                             <span class="ml-3">Dashboard</span>
@@ -73,11 +70,11 @@
                             <ul id="setting" class="hidden py-2 space-y-2">
                                 <li>
                                     <a href="/classes"
-                                        class="{{ (request()->is('classes')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Kelas</a>
+                                        class="{{ request()->is('classes') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Kelas</a>
                                 </li>
                                 <li>
                                     <a href="/period"
-                                        class="{{ (request()->is('period')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Periode</a>
+                                        class="{{ request()->is('period') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Periode</a>
                                 </li>
                             </ul>
                         </li>
@@ -85,7 +82,7 @@
 
                     <li class="px-3">
                         <a href="/student"
-                            class="{{ (request()->is('student')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
+                            class="{{ request()->is('student') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-user"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Data Siswa</span>
                         </a>
@@ -110,35 +107,38 @@
                         <ul id="transaction" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="/mutation"
-                                    class="{{ (request()->is('mutation')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Mutasi</a>
+                                    class="{{ request()->is('mutation') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Mutasi</a>
                             </li>
                             <li>
                                 <a href="/transaction"
-                                    class="{{ (request()->is('transaction')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Pembayaran</a>
+                                    class="{{ request()->is('transaction') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 pl-11 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 pl-11 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">Pembayaran</a>
                             </li>
                         </ul>
                     </li>
                     <li class="px-3">
                         <a href="/report"
-                            class="{{ (request()->is('report')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
+                            class="{{ request()->is('report') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
                             <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-print"></i></span>
                             <span class="flex-1 ml-3 whitespace-nowrap">Laporan</span>
                         </a>
                     </li>
 
-                    <li class="px-3">
-                        <a href="{{ route('user') }}"
-                            class="{{ (request()->is('user')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
-                            <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-users"></i></span>
-                            <span class="flex-1 ml-3 whitespace-nowrap">Operator</span>
-                        </a>
-                    </li>
+                    @can('isAdmin')
+                        <li class="px-3">
+                            <a href="{{ route('user') }}"
+                                class="{{ request()->is('user') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}">
+                                <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-users"></i></span>
+                                <span class="flex-1 ml-3 whitespace-nowrap">Operator</span>
+                            </a>
+                        </li>
+                    @endcan
 
                     @can('isAdmin')
                         <li class="px-3">
                             <a href="{{ route('profile') }}"
-                                class="{{ (request()->is('profile')) ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}>
-                                <span class="w-5 h-5 flex items-center justify-center"><i class="fa fa-school"></i></span>
+                                class="{{ request()->is('profile') ? 'bg-rose-500 flex items-center no-underline hover:text-gray-900 p-2 text-base font-normal text-white rounded-lg dark:text-white dark:hover:bg-gray-700' : 'flex items-center no-underline hover:text-rose-500 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700' }}>
+                                <span class="w-5
+                                h-5 flex items-center justify-center"><i class="fa fa-school"></i></span>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Profile Sekolah</span>
                             </a>
                         </li>
