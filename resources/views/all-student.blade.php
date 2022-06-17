@@ -4,13 +4,20 @@
     </x-slot>
     <x-slot name="main" class="">
         @if ($errors->any())
-            <div class="alert alert-danger">
+        <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <span class="font-medium">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </span>
+        </div>
+            <!-- <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div>
+            </div> -->
         @endif
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
@@ -93,7 +100,7 @@
                                     </div>
                                     <div>
                                         <input type="file" name="file"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="File">
                                     </div>
                                 </div>
@@ -261,7 +268,7 @@
 
                             <form class="space-y-6" action="{{ route('update.student') }}" method="POST">
                                 @csrf
-                                <div class="p-6 space-y-6">
+                                <div class="p-6 space-y-6 h-96 overflow-y-auto">
                                     <input type="hidden" name="id" id="idStudent">
                                     <div>
                                         <input type="number" name="nis" id="nis"
@@ -338,7 +345,7 @@
                                     <div>
                                         <textarea id="address" name="address" rows="4"
                                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="Your message..."></textarea>
+                                            placeholder="Alamat"></textarea>
                                     </div>
 
                                     <div>

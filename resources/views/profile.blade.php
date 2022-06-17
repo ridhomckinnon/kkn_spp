@@ -4,13 +4,20 @@
     </x-slot>
     <x-slot name="main">
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                <span class="font-medium">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </span>
+            </div>
+            <!-- <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div>
+            </div> -->
         @endif
 
         <div class="">
@@ -34,7 +41,7 @@
                     <div>
                         <input type="text" name="npsn"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="Nama Sekolah" value="{{ $user->school->npsn }}">
+                            placeholder="NPSN" value="{{ $user->school->npsn }}">
                     </div>
 
                     <div class="mt-2">

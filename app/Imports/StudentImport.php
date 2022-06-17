@@ -40,10 +40,10 @@ class StudentImport implements ToModel, WithHeadingRow, WithValidation
             'phone' => $row['phone'],
             'nis' => $row['nis'],
             'nisn' => $row['nisn'],
-            'religion' => $row['religion'],
+            'religion' => Str::upper($row['religion']),
             'address' => Str::lower($row['alamat']),
             'major' => $this->major,
-            'gender' => $row['jenis_kelamin']
+            'gender' => Str::upper($row['jenis_kelamin'])
 
         ]);
     }
