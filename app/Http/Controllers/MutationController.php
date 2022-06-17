@@ -40,6 +40,7 @@ class MutationController extends Controller
                         ->get();
 
 
+
         $pdf = PDF::loadView('pdf.mutation', compact('transactions','student','from','to'));
 
         // return $pdf->download();

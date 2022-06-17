@@ -1595,10 +1595,6 @@ input:checked + .toggle-bg {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
-.border-gray-50 {
-  --tw-border-opacity: 1;
-  border-color: rgb(249 250 251 / var(--tw-border-opacity));
-}
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
@@ -1610,10 +1606,6 @@ input:checked + .toggle-bg {
 .border-blue-600 {
   --tw-border-opacity: 1;
   border-color: rgb(28 100 242 / var(--tw-border-opacity));
-}
-.border-gray-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .bg-gray-50 {
   --tw-bg-opacity: 1;
@@ -1689,9 +1681,9 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
-.bg-gray-400 {
+.bg-red-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+  background-color: rgb(253 232 232 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1728,9 +1720,6 @@ input:checked + .toggle-bg {
 }
 .p-3 {
   padding: 0.75rem;
-}
-.p-8 {
-  padding: 2rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1990,6 +1979,10 @@ input:checked + .toggle-bg {
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
+}
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(200 30 30 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -2436,6 +2429,11 @@ input:checked + .toggle-bg {
     background-color: rgb(31 41 55 / 0.5);
   }
 
+  .dark\:bg-red-200 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(251 213 213 / var(--tw-bg-opacity));
+  }
+
   .dark\:bg-opacity-80 {
     --tw-bg-opacity: 0.8;
   }
@@ -2453,6 +2451,11 @@ input:checked + .toggle-bg {
   .dark\:text-blue-500 {
     --tw-text-opacity: 1;
     color: rgb(63 131 248 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-red-800 {
+    --tw-text-opacity: 1;
+    color: rgb(155 28 28 / var(--tw-text-opacity));
   }
 
   .dark\:placeholder-gray-400::-moz-placeholder {
