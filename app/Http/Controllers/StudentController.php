@@ -21,7 +21,7 @@ class StudentController extends Controller
     {
         $students = Student::all();
         $periods = Period::all();
-        $classes = Classes::orderBy('name', 'asc')->filter($request)->get();
+        $classes = Classes::orderBy('name', 'asc')->whereIsActive('active')->filter($request)->get();
         return view('student', compact('students', 'periods', 'classes'));
     }
 
@@ -30,7 +30,7 @@ class StudentController extends Controller
         $class = Classes::with('school')->findOrFail($idClass);
         $students = Student::where('id_classes', $idClass)->latest()->get();
         $periods = Period::all();
-        $classes = Classes::all();
+        $classes = Classes::whereIsActive('active')->get();
 
         return view('all-student', compact('class', 'students', 'periods', 'classes', 'idClass'));
     }
