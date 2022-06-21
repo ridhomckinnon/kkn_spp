@@ -29,7 +29,7 @@
             </div>
             <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
                 <!-- <h3>Profile Sekolah</h3> -->
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid lg:grid-cols-2 gap-2">
 
                     @csrf
                     <div>
@@ -44,13 +44,13 @@
                             placeholder="NPSN" value="{{ $user->school->npsn }}">
                     </div>
 
-                    <div class="mt-2">
+                    <div class="lg:mt-2">
                         <textarea name="address" placeholder="Alamat Sekolah"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             id="" cols="30" rows="10">{{ $user->school->address }}</textarea>
                     </div>
 
-                    <div class="mt-2">
+                    <div class="lg:mt-2">
                         <input type="file" name="logo"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="Nama Sekolah" value="{{ $user->school->npsn }}">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                    class="flex items-center justify-center py-6 space-x-2">
                     <button type="submit"
                         class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-6 py-3 text-center">Update</button>
                     <a href="/dashboard"

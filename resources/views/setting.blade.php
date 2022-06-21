@@ -237,7 +237,7 @@
         </div>
 
         <div class="relative">
-            <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
+            <table class="dataTable table-auto lg:w-full border lg:overflow-hidden rounded-xl">
                 <thead class="bg-slate-100 text-white border-b">
                     <tr>
                         <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
@@ -267,7 +267,7 @@
                             </td>
 
 
-                            <td class="text-left border-b border-slate-100">
+                            <td class="flex text-left border-b border-slate-100">
                                 <button
                                     class="btnEdit  bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-1"
                                     data-modal-toggle="editModal" data-id="{{ $data->id }}"

@@ -19,25 +19,24 @@
                 </ul>
             </div> -->
         @endif
-        <div class="mb-4 relative flex justify-between align-middle items-center">
-            <div class="w-2/6 flex justify-start">
-                <div>
-
-                    <h2 class="font-bold  text-2xl">Siswa {{ $class->name }}</h2>
+        <div class="mb-4 relative lg:flex md:flex justify-between align-middle items-center">
+            <div class="lg:w-2/6 flex lg:justify-start">
+                <div class="mb-4">
+                    <h2 class="font-bold text-2xl">Siswa {{ $class->name }}</h2>
                 </div>
             </div>
-            <div class="w-4/6 flex justify-end">
+            <div class="lg:w-4/6 flex lg:justify-end justify-center">
                 <button
-                    class="bg-sky-500 px-4 py-2 text-sm text-white rounded-xl ml-4 w-auto block text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
+                    class="bg-sky-500 lg:px-4 lg:py-2 text-sm text-white rounded-xl lg:ml-4 w-auto block text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
                     type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
                 </button>
                 <button
-                    class="bg-sky-500 px-4 py-2 text-sm text-white bg-gray-800 rounded-xl ml-4 w-auto block text-white hover:bg-gray-200 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center"
+                    class="bg-amber-500 px-4 py-2 text-sm text-white rounded-xl lg:ml-4 mx-4 w-auto block text-white hover:bg-amber-600 focus:ring-2 focus:ring-amber-300 font-medium rounded-lg text-md px-6 py-3 text-center"
                     type="button" data-modal-toggle="addModalImport"> <i class="fa-solid fa-file"></i> Import Siswa
                 </button>
 
                 <a
-                    class="bg-sky-500 px-4 py-2 text-sm text-white bg-gray-800 rounded-xl ml-4 w-auto block text-white hover:bg-gray-200 focus:ring-2 focus:ring-sky-300 font-medium rounded-lg text-md px-6 py-3 text-center no-underline"
+                    class="bg-emerald-500 px-4 py-2 text-sm text-white rounded-xl lg:ml-4 w-auto block text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 font-medium rounded-lg text-md px-6 py-3 text-center no-underline"
                     href="{{asset('import/studentImport.xlsx')}}" download> <i class="fa-solid fa-file"></i> Download Template
                 </a>
 
