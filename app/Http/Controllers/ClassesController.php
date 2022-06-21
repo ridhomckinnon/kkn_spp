@@ -105,7 +105,10 @@ class ClassesController extends Controller
      */
     public function destroy($id)
     {
-        $classes = Classes::findOrFail($id)->delete();
+        $classes = Classes::findOrFail($id);
+        $classes->delete();
+        $classes->student()->delete();
+
         Alert::toast('Hapus Data Berhasil ', 'success');
         return redirect()->back();
     }

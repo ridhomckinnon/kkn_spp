@@ -33,70 +33,59 @@
         <hr>
 
         <div>
+            <h2>Kelas : {{ $classes->name }}</h2>
             <div style="float: left; width: 50%">
                 <table>
                     <tr>
-                        <td width=190">Dari Tanggal</td>
+                        <td width=190">Bulan</td>
                         <td style="width:30px">:</td>
-                        <td>{{ $from }}</td>
+                        <td>{{ $bulan }}</td>
                     </tr>
 
                     <tr>
-                        <td width='90'>Sampai Tanggal</td>
+                        <td width='90'>Tahun</td>
                         <td style="width:30px">:</td>
-                        <td>{{ $to }}</td>
+                        <td>{{ $tahun }}</td>
                     </tr>
 
                 </table>
             </div>
-            {{-- <div style="margin-left: 50%; width: 50%;">
-                <table>
-                    <tr>
-                        <td  width=190">Dari Tanggal</td>
-                        <td style="width:30px">:</td>
-                        <td>{{ $from }}</td>
-                    </tr>
-
-                    <tr>
-                        <td width='90'>Sampai Tanggal</td>
-                        <td style="width:30px">:</td>
-                        <td>{{ $to }}</td>
-                    </tr>
-
-                </table>
-            </div> --}}
         </div>
 
         <br>
 
-
         <table class="table table-striped mt-5">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">No Transaksi</th>
-                    <th scope="col">SPP</th>
-                    <th scope="col">Jumlah</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama</th>
+                    <th>Bayar</th>
+                    <th>Belum Bayar</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $no = 0;
                 @endphp
-                @foreach ($transactions as $data)
+                @foreach ($classes->student as $student)
+                    @php
+                        $hasil = $student->transactions()->where('bulan', '1')->where('tahun', $tahun)->sum('jumlah');
+                    @endphp
                     <tr>
                         <th scope="row">{{ ++$no }}</th>
-                        <td>{{ $data->no_payment }}</td>
-                        <td>{{ bulan($data->bulan) . '/' . $data->tahun }}</td>
-                        <td>{{ rupiah($data->jumlah) }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>
+                            {{ rupiah($hasil) }}
+                        </td>
+                        <td>
+                            {{ rupiah($student->period->price_spp - $hasil) }}
+                        </td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="3" align="right"><b>Total: </b></td>
-                    <td>{{ rupiah($total) }}</td>
-                </tr>
             </tbody>
         </table>
+
+
     </div>
     {{-- </div> --}}
     <!-- Optional JavaScript -->

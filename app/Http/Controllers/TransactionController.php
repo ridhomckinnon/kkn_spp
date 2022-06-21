@@ -52,9 +52,6 @@ class TransactionController extends Controller
         },'period','classes'])->first();
 
         $transactions = Transaction::whereTahun($year)->with('student.period')->whereIdStudent($student)->get();
-        // return $transactions;
-
-        // return $students;
 
         $student = Student::findOrFail($student);
 
@@ -63,10 +60,14 @@ class TransactionController extends Controller
 
     public function store(Request $request,$idStudent)
     {
-
         $this->validate($request,[
-            'payment_date' => 'required'
+            'payment_date' => 'required',
+            'jumlah'    => 'required',
+        ],[
+            'payment_date.required' => 'Tanggal harus diisi',
+            'jumlah.required' => 'Jumlah harus diisi',
         ]);
+
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
         $nopayment = substr(str_shuffle(Str::upper($permitted_chars)), 0, 17);;
 
@@ -76,7 +77,8 @@ class TransactionController extends Controller
         $items['no_payment'] = $nopayment;
 
         Transaction::create($items);
-        Alert::toast('Data berhasil ditambahkan','success');
+
+        Alert::toast('Transaksi berhasil ditambahkan','success');
 
         return redirect()->back();
     }

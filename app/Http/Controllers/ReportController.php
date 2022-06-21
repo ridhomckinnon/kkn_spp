@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -11,30 +12,27 @@ class ReportController extends Controller
     public function index()
     {
         $transactions = Transaction::all();
-        return view('report',compact('transactions'));
+        $classes = Classes::whereIsActive('active')->get();
+        return view('report', compact('transactions', 'classes'));
     }
 
     public function post(Request $request)
     {
-        $this->validate($request, [
-            'from' => 'before:to|required',
-            'to' => 'required',
-        ], [
-            'from.required' => 'Tanggal Awal harus diisi',
-            'to.required' => 'Tanggal Akhir harus diisi',
-            'from.before' => 'Tanggal Awal harus lebih kecil dari Tanggal Akhir',
-        ]);
 
-        $from = date('Y-m-d',strtotime($request->from));
-        $to = date('Y-m-d',strtotime($request->to));
+        $bulan = $request->bulan;
+        $tahun = $request->tahun;
+        $class = $request->class;
 
-        $transactions = Transaction::whereBetween('payment_date', [$from,$to])->get();
+        $classes = Classes::with('student')->find($class);
+        // $transactions = Transaction::whereBetween('payment_date', [$from,$to])->get();
+        // $total = Transaction::sum('jumlah');
         $user = auth()->user();
+        $transactions = Transaction::whereIn('id_student', $classes->student->pluck('id'))
+            ->whereMonth('payment_date', $bulan)
+            ->whereYear('payment_date', $tahun)
+            ->get();
 
-        $total = Transaction::sum('jumlah');
-
-
-        $pdf = PDF::loadView('pdf.rekap', compact('transactions','from','to','user','total'));
+        $pdf = PDF::loadView('pdf.rekap', compact('classes', 'bulan', 'tahun', 'user', 'transactions'))->setPaper('a4', 'potrait');;
 
         return $pdf->stream();
     }

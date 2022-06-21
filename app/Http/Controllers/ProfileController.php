@@ -7,8 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -31,6 +30,8 @@ class ProfileController extends Controller
         $user = User::find(Auth::id());
         $school = School::find($user->id_school);
         $school->update($items);
+
+        Alert::toast('Profile updated successfully','success');
 
         return view('profile',compact('user'));
     }

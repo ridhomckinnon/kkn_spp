@@ -158,43 +158,7 @@
                             </div>
                         </div>
 
-                        <div id="confirmModal" tabindex="-1" aria-hidden="true"
-                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
 
-                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-
-                                    <div
-                                        class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                            Hapus Data
-                                        </h3>
-                                        <button type="button"
-                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                            data-modal-toggle="confirmModal">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <div class="p-6 space-y-6">
-                                        <p>Apakah anda yakin ingin menghapus data ini?</p>
-                                    </div>
-
-                                    <div
-                                        class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                        <a id="btnDelete"
-                                            class="text-white bg-rose-500 no-underline hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
-                                        <button data-modal-toggle="confirmModal" type="button"
-                                            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -224,15 +188,12 @@
                                             data-modal-toggle="editModal" data-id="{{ $data->id }}"
                                             data-url={{ url('/') }} id="btnEdit"><i
                                                 class="fa-solid w-4 h-4 fa-pen-to-square"></i></button>
-                                        <button
-                                            class="btnConfirm bg-red-500 font-light rounded-lg text-white hover:bg-red-600 focus:ring-2 focus:ring-red-300 py-1 px-2 mx-2"
-                                            data-modal-toggle="confirmModal"
-                                            data-href="{{ url('classes/delete') . '/' . $data->id }}"><i
-                                                class="fa-solid w-4 h-4 fa-trash"></i></button>
-                                        <form class="inline" action="{{route('change.classes',['classes' => $data->id])}}">
+
+                                        <form class="inline"
+                                            action="{{ route('change.classes', ['classes' => $data->id]) }}">
                                             <button
-                                                class="btnNonactive bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-rose-300 py-1 px-2 mx-2"
-                                                ><i class="fa-solid w-4 h-4 fa-power-off"></i></button>
+                                                class="btnNonactive bg-rose-500 font-light rounded-lg text-white hover:bg-rose-600 focus:ring-2 focus:ring-rose-300 py-1 px-2 mx-2"><i
+                                                    class="fa-solid w-4 h-4 fa-power-off"></i></button>
 
                                         </form>
                                     </td>
@@ -247,7 +208,42 @@
 
             <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel"
                 aria-labelledby="dashboard-tab">
+                <div id="confirmModal" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+                    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
 
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+
+                            <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                    Hapus Data
+                                </h3>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    data-modal-toggle="confirmModal">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="p-6 space-y-6">
+                                <p>Apakah anda yakin ingin menghapus data ini?</p>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                                <a id="btnDelete"
+                                    class="text-white bg-rose-500 no-underline hover:bg-rose-600 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-6 py-3 text-center">Hapus</a>
+                                <button data-modal-toggle="confirmModal" type="button"
+                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -277,13 +273,19 @@
                                     <td class="text-left font-light p-3 border-b border-slate-100">{{ $data->name }}
                                     </td>
                                     <td class="text-left border-b border-slate-100">
-                                    <form class="inline" action="{{route('change.classes',['classes' => $data->id])}}">
                                         <button
-                                            class="btnNonactive bg-emerald-500 font-light rounded-lg text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 py-1 px-2"
-                                            ><i class="fa-solid w-4 h-4 fa-power-off"></i></button>
+                                            class="btnConfirm bg-red-500 font-light rounded-lg text-white hover:bg-red-600 focus:ring-2 focus:ring-red-300 py-1 px-2 mx-2"
+                                            data-modal-toggle="confirmModal"
+                                            data-href="{{ url('classes/delete') . '/' . $data->id }}"><i
+                                                class="fa-solid w-4 h-4 fa-trash"></i></button>
+                                        <form class="inline"
+                                            action="{{ route('change.classes', ['classes' => $data->id]) }}">
+                                            <button
+                                                class="btnNonactive bg-emerald-500 font-light rounded-lg text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 py-1 px-2"><i
+                                                    class="fa-solid w-4 h-4 fa-power-off"></i></button>
 
-                                    </form>
-                                        <!-- <a href="{{route('change.classes',['classes' => $data->id])}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800: no-underline"">aktifkan Kelas</a> -->
+                                        </form>
+                                        <!-- <a href="{{ route('change.classes', ['classes' => $data->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800: no-underline"">aktifkan Kelas</a> -->
                                     </td>
                                 </tr>
                             @endforeach
