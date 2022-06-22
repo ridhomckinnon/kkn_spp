@@ -67,7 +67,7 @@
                             type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
                         </button>
                         <div id="addModal" tabindex="-1" aria-hidden="true"
-                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-modal h-full justify-center items-center">
                             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
 
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">

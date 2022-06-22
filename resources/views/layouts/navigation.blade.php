@@ -1,7 +1,16 @@
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
+            <div class="shrink-0 md:hidden lg:hidden flex h-16">
+                <a href="{{ route('dashboard') }}" class="flex no-underline items-center text-black">
+                    <div>
+                        <x-application-logo class="block h-4 w-auto fill-current text-gray-600" />
+                    </div>
+                    <div class="font-bold ml-4">SMKS JAMBI Medan</div>
+                </a>
+            </div>
             <div class="flex">
 
                 <!-- <button><i class="fa fa-bars bg-white py-3 shadow-sm px-3 rounded-lg"></i></button> -->
@@ -69,6 +78,30 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('classes')" :active="request()->routeIs('classes')">
+                {{ __('Kelas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('period')" :active="request()->routeIs('period')">
+                {{ __('Periode') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('student')" :active="request()->routeIs('student')">
+                {{ __('Data Siswa') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('mutation')" :active="request()->routeIs('mutation')">
+                {{ __('Mutasi') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('transaction')" :active="request()->routeIs('transaction')">
+                {{ __('Pembayaran') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('report')" :active="request()->routeIs('report')">
+                {{ __('Laporan') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user')" :active="request()->routeIs('user')">
+                {{ __('Operator') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                {{ __('Profile Sekolah') }}
             </x-responsive-nav-link>
         </div>
 

@@ -104,8 +104,8 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
 
     Route::prefix('mutation')->group(function () {
         Route::get('/',[MutationController::class, 'index'])->name('mutation');
-        Route::get('/student/{id}',[MutationController::class, 'detail'])->name('mutation');
-        Route::post('/cetak/{idStudent}',[MutationController::class, 'cetak'])->name('mutation');
+        Route::get('/student/{id}',[MutationController::class, 'detail'])->name('mutation.student');
+        Route::post('/cetak/{idStudent}',[MutationController::class, 'cetak'])->name('mutation.print');
     });
 
     // Route::prefix('transaction')->group(function () {
