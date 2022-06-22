@@ -11,13 +11,13 @@
                     @endforeach
                 </span>
             </div>
-            <!-- <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div> -->
+                <!-- <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div> -->
         @endif
         <div class="mb-4 relative flex justify-between align-middle items-center">
             <div class="w-2/6 flex justify-start">
@@ -227,7 +227,7 @@
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->email }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->username }}</td>
                             <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->role }}</td>
-                            <td class="text-left border-b border-slate-100">
+                            <td class="flex text-left border-b border-slate-100">
                                 <button
                                     class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                     data-modal-toggle="editModal" data-url={{ url('/') }}

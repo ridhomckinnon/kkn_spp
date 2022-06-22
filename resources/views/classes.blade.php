@@ -10,16 +10,16 @@
     </x-slot>
     <x-slot name="main" class="">
         <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
-                data-tabs-toggle="#myTabContent" role="tablist">
-                <li class="mr-2" role="class">
-                    <button class="inline-block p-4 rounded-t-lg border-b-2" id="active-class-tab"
+            <ul class="flex flex-wrap -mb-px justify-center text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent"
+                role="tablist">
+                <li class="w-6/12" role="class">
+                    <button class="inline-block p-4 rounded-t-lg border-b-2 w-full" id="active-class-tab"
                         data-tabs-target="#active-class" type="button" role="tab" aria-controls="active-class"
                         aria-selected="false">Kelas Aktif</button>
                 </li>
-                <li class="mr-2" role="class">
+                <li class="w-6/12" role="class">
                     <button
-                        class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                        class="inline-block p-4 rounded-t-lg border-b-2 w-full border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                         id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
                         aria-controls="dashboard" aria-selected="false">Kelas Nonaktif</button>
                 </li>
@@ -182,7 +182,7 @@
                                     </td>
 
 
-                                    <td class="text-left border-b border-slate-100">
+                                    <td class="flex text-left border-b border-slate-100">
                                         <button
                                             class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                             data-modal-toggle="editModal" data-id="{{ $data->id }}"

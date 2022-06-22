@@ -6,8 +6,8 @@
         <div class="main-title mb-4">
             <h3 class="font-bold">Pilih Kelas</h3>
         </div>
-        <div class="overflow-y-auto " style="">
-            <div class="w-4/6 border rounded-xl px-4 pt-4">
+        <div class="">
+            <div class="">
                 <form action="{{route('student')}}" method="GET">
                     <div class="mb-4 relative">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -22,14 +22,26 @@
                 </form>
 
                 <div class="bg-white ">
-                @foreach($classes as $class)
-                <a href="{{route('classes.student',['classesId' => $class->id])}}" class="block no-underline text-gray-500 px-4 py-2 border rounded-xl capitalize mb-4">
+                    <div class="grid lg:grid-cols-6 grid-cols-2 gap-4">
+                    @foreach($classes as $class)
+                        <a href="{{route('classes.student',['classesId' => $class->id])}}">
+
+                            <div class="border rounded-xl p-4 border-2 hover:border-rose-500">
+
+                                {{ $class->name }}
+
+                            </div>
+                        </a>
+                    @endforeach
+                    </div>
+
+                </div>
+                <!-- <a href="{{route('classes.student',['classesId' => $class->id])}}" class="block no-underline text-gray-500 px-4 py-2 border rounded-xl capitalize mb-4">
                     <div class="flex items-center justify-between">
                         {{ $class->name }}
                         <i class="fa fa-chevron-right"></i>
                     </div>
-                </a>
-                @endforeach
+                </a> -->
                 </div>
             </div>
 

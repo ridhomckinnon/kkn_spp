@@ -31,7 +31,7 @@
 
 <body class="font-sans antialiased">
     <div class="flex min-h-screen bg-gray-100">
-        <aside class="fixed shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto dark:bg-gray-800">
+        <aside class="fixed lg:block hidden shadow-sm inset-y-0 z-20 flex-shrink-0 w-64 top-0 overflow-y-auto dark:bg-gray-800">
 
             <div class="h-full bg-white rounded dark:bg-gray-800">
                 <div class="shrink-0 flex px-3 mb-2 h-16">
@@ -149,16 +149,16 @@
         </aside>
 
         <!-- Page Content -->
-        <div class="flex flex-col flex-1 w-full lg:ml-64 ">
-            <header class="fixed z-20 bg-white md:w-10/12 w-screen">
+        <div class="flex flex-col flex-1 w-full md:ml-0 lg:ml-64 ">
+            <header class="fixed z-20 bg-white lg:w-10/12 md:w-full w-full">
                 @include('layouts.navigation')
 
             </header>
-            <main class="mt-24">
+            <main class="lg:mt-20 md:mt-20 mt-20">
                 <div class="main-heading mx-4 mb-4">
                     {{ $heading }}
                 </div>
-                <div class="main-body bg-white mx-4 mb-4 py-4 px-4 sm:px-6 lg:px-8 shadow-sm rounded-xl">
+                <div class="main-body bg-white mx-4 mb-4 py-4 px-4 shadow-sm rounded-xl">
 
                     {{ $main }}
                 </div>

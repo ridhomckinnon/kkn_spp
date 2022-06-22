@@ -15,7 +15,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center lg:ml-6 md:ml-0">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
