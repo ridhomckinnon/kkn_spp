@@ -14,10 +14,13 @@
 <body>
     {{-- <div class="container"> --}}
     <div class="row">
+        <h2 align='center'>Rakapitulasi Pembayaran SPP Perbulan</h2>
+        <br>
+        <br>
         <table>
             <tr>
                 <td>
-                    <h2 style="text-transform: uppercase">{{ $user->school->name }}</h2>
+                    <h4 style="text-transform: uppercase">{{ $user->school->name }}</h4>
                 </td>
             </tr>
             <tr>
@@ -25,7 +28,6 @@
                     <p>{{ $user->school->address }}</p>
                 </td>
                 <td>
-                    <h4>Rekap Transaksi</h4>
                 </td>
             </tr>
         </table>
@@ -39,7 +41,7 @@
                     <tr>
                         <td width=190">Bulan</td>
                         <td style="width:30px">:</td>
-                        <td>{{ $bulan }}</td>
+                        <td>{{ bulan($bulan) }}</td>
                     </tr>
 
                     <tr>
