@@ -22,7 +22,7 @@
             </div> -->
         @endif
         <h2 class="font-bold text-2xl">Rekap Laporan</h2>
-        <div class="border rounded-lg p-4 mt-4">
+        <div class="bg-white rounded-lg p-4 mt-4">
             <form action="{{ route('report.post') }}" method="post">
                 @csrf
                 <div class="mb-4">

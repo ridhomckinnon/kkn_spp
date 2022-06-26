@@ -3,49 +3,53 @@
         <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
     </x-slot>
     <x-slot name="main" class="">
-        <div class="main-title mb-4">
-            <h3 class="font-bold">Pilih Kelas</h3>
-        </div>
-        <div class="">
-            <div class="">
-                <form action="{{route('student')}}" method="GET">
-                    <div class="mb-4 relative">
-                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <i class="fa fa-search text-gray-500"></i>
-                    </div>
+        <div class="bg-white p-4">
 
-                        <button class="bg-rose-400 absolute rounded-xl right-2 top-2 py-1 px-3 text-white">Cari</button>
 
-                        <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
-                    </div>
-
-                </form>
-
-                <div class="bg-white ">
-                    <div class="grid lg:grid-cols-6 grid-cols-2 gap-4">
-                    @foreach($classes as $class)
-                        <a href="{{route('classes.student',['classesId' => $class->id])}}">
-
-                            <div class="border rounded-xl p-4 border-2 hover:border-rose-500">
-
-                                {{ $class->name }}
-
-                            </div>
-                        </a>
-                    @endforeach
-                    </div>
-
-                </div>
-                <!-- <a href="{{route('classes.student',['classesId' => $class->id])}}" class="block no-underline text-gray-500 px-4 py-2 border rounded-xl capitalize mb-4">
-                    <div class="flex items-center justify-between">
-                        {{ $class->name }}
-                        <i class="fa fa-chevron-right"></i>
-                    </div>
-                </a> -->
-                </div>
+            <div class="main-title mb-4">
+                <h3 class="font-bold">Pilih Kelas</h3>
             </div>
+            <div class="">
+                <div class="">
+                    <form action="{{route('student')}}" method="GET">
+                        <div class="mb-4 relative">
+                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                            <i class="fa fa-search text-gray-500"></i>
+                        </div>
+
+                            <button class="bg-rose-400 absolute rounded-xl right-2 top-2 py-1 px-3 text-white">Cari</button>
+
+                            <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
+                        </div>
+
+                    </form>
+
+                    <div class="bg-white ">
+                        <div class="grid lg:grid-cols-6 grid-cols-2 gap-4">
+                        @foreach($classes as $class)
+                            <a href="{{route('classes.student',['classesId' => $class->id])}}">
+
+                                <div class="border rounded-xl p-4 border-2 hover:border-rose-500">
+
+                                    {{ $class->name }}
+
+                                </div>
+                            </a>
+                        @endforeach
+                        </div>
+
+                    </div>
+                    <!-- <a href="{{route('classes.student',['classesId' => $class->id])}}" class="block no-underline text-gray-500 px-4 py-2 border rounded-xl capitalize mb-4">
+                        <div class="flex items-center justify-between">
+                            {{ $class->name }}
+                            <i class="fa fa-chevron-right"></i>
+                        </div>
+                    </a> -->
+                    </div>
+                </div>
 
 
+            </div>
         </div>
         {{-- <div class="hidden">
 

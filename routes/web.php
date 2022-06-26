@@ -48,6 +48,8 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
 
         $class = Classes::count();
         $transaction = Transaction::sum('jumlah');
+        Route::get('dashboard', [FullCalendarController::class, 'index'])->name('calendar');
+        Route::post('dashboard', [FullCalendarController::class, 'ajax'])->name('calendar.post');
         return view('dashboard', compact('student', 'class','transaction','jurusan'));
     })->name('dashboard');
 
@@ -64,6 +66,7 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
     Route::prefix('setting')->group(function () {
         Route::get('/', [SettingController::class, 'index'])->name('setting');
     });
+
 
     Route::prefix('period')->group(function () {
         Route::get('/', [PeriodController::class, 'index'])->name('period');

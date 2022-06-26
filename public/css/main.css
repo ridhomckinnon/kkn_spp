@@ -2,8 +2,27 @@ body{
     font-family: 'Manrope';
 }
 .dataTable{
-    width: 100%;
+    overflow-x: scroll;
+    max-width: 100%;
 }
 table.dataTable.no-footer{
     border: none;
 }
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 10px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9b9b9b;
+  }

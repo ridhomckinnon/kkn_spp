@@ -27,7 +27,7 @@
             </ul>
         </div>
         <div id="myTabContent">
-            <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="active-class" role="tabpanel"
+            <div class="hidden p-4 bg-white shadow rounded-lg dark:bg-gray-800" id="active-class" role="tabpanel"
                 aria-labelledby="active-class-tab">
                 @if ($errors->any())
                     <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -206,7 +206,7 @@
             </div>
 
 
-            <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel"
+            <div class="hidden p-4 bg-white shadow rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel"
                 aria-labelledby="dashboard-tab">
                 <div id="confirmModal" tabindex="-1" aria-hidden="true"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">

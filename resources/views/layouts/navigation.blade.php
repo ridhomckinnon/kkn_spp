@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-2 lg:px-6">
         <div class="flex justify-between h-16">
             <div class="shrink-0 md:hidden lg:hidden flex h-16">
                 <a href="{{ route('dashboard') }}" class="flex no-underline items-center text-black">
