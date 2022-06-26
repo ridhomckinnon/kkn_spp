@@ -11,7 +11,7 @@
         <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-4 mb-4">
             <div class="border shadow rounded-xl p-4">
                <div class="md:block items-center justify-between">
-                <h4>Siswa</h4>
+                <h4>Peserta Didik</h4>
                 <h3 class="text-gray-500">{{$student}}</h3>
                </div>
             </div>

@@ -68,10 +68,14 @@
             <tbody>
                 @php
                     $no = 0;
+                    $bayar =0;
+                    $belumBayar =0;
                 @endphp
                 @foreach ($classes->student as $student)
                     @php
                         $hasil = $student->transactions()->where('bulan', '1')->where('tahun', $tahun)->sum('jumlah');
+                        $bayar += $hasil;
+                        $belumBayar += $student->period->price_spp - $hasil;
                     @endphp
                     <tr>
                         <th scope="row">{{ ++$no }}</th>
@@ -85,6 +89,13 @@
                     </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2">Total :</th>
+                    <th>{{rupiah($bayar)}}</th>
+                    <th>{{rupiah($belumBayar)}}</th>
+                </tr>
+            </tfoot>
         </table>
 
 
