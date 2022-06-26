@@ -3,11 +3,7 @@
         <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i>
             Kembali</a>
     </x-slot>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ 'Kelas' }}
-        </h2>
-    </x-slot>
+
     <x-slot name="main" class="">
         <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
             <ul class="flex flex-wrap -mb-px justify-center text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent"
@@ -20,7 +16,7 @@
                 <li class="w-6/12" role="class">
                     <button
                         class="inline-block p-4 rounded-t-lg border-b-2 w-full border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                        id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
+                        id="nonactive-class-tab" data-tabs-target="#dashboard" type="button" role="tab"
                         aria-controls="dashboard" aria-selected="false">Kelas Nonaktif</button>
                 </li>
 
@@ -48,7 +44,7 @@
                 <div class="mb-4 relative flex justify-between align-middle items-center">
                     <div class="w-2/6 flex justify-start">
                         <div>
-                            <h2 class="font-bold text-2xl">Kelas</h2>
+                            <h2 class="font-bold text-2xl">Kelas Aktif</h2>
                             <!-- <p class="font-light">this page for student</p> -->
                         </div>
                     </div>
@@ -67,8 +63,8 @@
                             type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
                         </button>
                         <div id="addModal" tabindex="-1" aria-hidden="true"
-                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-modal h-full justify-center items-center">
-                            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                            <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -112,8 +108,8 @@
                             </div>
                         </div>
                         <div id="editModal" tabindex="-1" aria-hidden="true"
-                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                            <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -163,12 +159,12 @@
                 </div>
 
                 <div class="relative">
-                    <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
-                        <thead class="bg-slate-100 mt-4">
+                    <table class="dataTable table-auto" style="width:100%">
+                        <thead class="bg-rose-500 text-white">
                             <tr>
-                                <th class="font-bold p-4 text-gray-500 text-left">#</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Nama Kelas</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
+                                <th class="font-bold p-4 text-left">#</th>
+                                <th class="font-bold p-4 text-left">Nama Kelas</th>
+                                <th class="font-bold p-4 text-left">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -207,10 +203,64 @@
 
 
             <div class="hidden p-4 bg-white shadow rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel"
-                aria-labelledby="dashboard-tab">
+                aria-labelledby="nonactive-class-tab">
+                <div>
+                    <h2 class="font-bold text-2xl">Kelas Nonaktif</h2>
+                    <!-- <p class="font-light">this page for student</p> -->
+                </div>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <div class="relative">
+                    <table class="dataTable table-auto" style="width:100%">
+                        <thead class="bg-rose-500 text-white">
+                            <tr>
+                                <th class="font-bold p-4 text-left">#</th>
+                                <th class="font-bold p-4 text-left">Nama Kelas</th>
+                                <th class="font-bold p-4 text-left">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($inActiveClasses as $data)
+                                <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
+
+                                    <td class="text-left font-light p-3 border-b border-slate-100">
+                                        {{ $loop->iteration }}</td>
+                                    <td class="text-left font-light p-3 border-b border-slate-100">{{ $data->name }}
+                                    </td>
+                                    <td class="text-left border-b border-slate-100">
+                                        <button
+                                            class="btnConfirm bg-red-500 font-light rounded-lg text-white hover:bg-red-600 focus:ring-2 focus:ring-red-300 py-1 px-2 mx-2"
+                                            data-modal-toggle="confirmModal"
+                                            data-href="{{ url('classes/delete') . '/' . $data->id }}"><i
+                                                class="fa-solid w-4 h-4 fa-trash"></i></button>
+                                        <form class="inline"
+                                            action="{{ route('change.classes', ['classes' => $data->id]) }}">
+                                            <button
+                                                class="btnNonactive bg-emerald-500 font-light rounded-lg text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 py-1 px-2"><i
+                                                    class="fa-solid w-4 h-4 fa-power-off"></i></button>
+
+                                        </form>
+                                        <!-- <a href="{{ route('change.classes', ['classes' => $data->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800: no-underline"">aktifkan Kelas</a> -->
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                </div>
                 <div id="confirmModal" tabindex="-1" aria-hidden="true"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                    <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -243,55 +293,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <div class="relative">
-                    <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
-                        <thead class="bg-slate-100 mt-4">
-                            <tr>
-                                <th class="font-bold p-4 text-gray-500 text-left">#</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Nama Kelas</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach ($inActiveClasses as $data)
-                                <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
-
-                                    <td class="text-left font-light p-3 border-b border-slate-100">
-                                        {{ $loop->iteration }}</td>
-                                    <td class="text-left font-light p-3 border-b border-slate-100">{{ $data->name }}
-                                    </td>
-                                    <td class="text-left border-b border-slate-100">
-                                        <button
-                                            class="btnConfirm bg-red-500 font-light rounded-lg text-white hover:bg-red-600 focus:ring-2 focus:ring-red-300 py-1 px-2 mx-2"
-                                            data-modal-toggle="confirmModal"
-                                            data-href="{{ url('classes/delete') . '/' . $data->id }}"><i
-                                                class="fa-solid w-4 h-4 fa-trash"></i></button>
-                                        <form class="inline"
-                                            action="{{ route('change.classes', ['classes' => $data->id]) }}">
-                                            <button
-                                                class="btnNonactive bg-emerald-500 font-light rounded-lg text-white hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 py-1 px-2"><i
-                                                    class="fa-solid w-4 h-4 fa-power-off"></i></button>
-
-                                        </form>
-                                        <!-- <a href="{{ route('change.classes', ['classes' => $data->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800: no-underline"">aktifkan Kelas</a> -->
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
                 </div>
             </div>
 

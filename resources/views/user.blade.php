@@ -19,7 +19,7 @@
                     </ul>
                 </div> -->
         @endif
-        <div class="bg-white p-4">
+        <div class="bg-white p-4 shadow rounded-xl">
             <div class="mb-4 relative flex justify-between align-middle items-center">
                 <div class="w-2/6 flex justify-start">
 
@@ -33,8 +33,8 @@
                         type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
                     </button>
                     <div id="addModal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto">
+                        <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto md:h-auto">
 
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -55,7 +55,7 @@
                                 </div>
 
                                 <form class="space-y-6" action="{{ route('post.user') }}" method="POST">
-                                    <div class="p-6 space-y-6">
+                                    <div class="px-6 space-y-6">
                                         @csrf
                                         <input type="hidden" name="role" value="operator">
                                         <div>
@@ -101,8 +101,8 @@
                         </div>
                     </div>
                     <div id="editModal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto">
+                        <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -124,7 +124,7 @@
 
                                 <form class="space-y-6" action="{{ route('update.user') }}" method="POST">
                                     @csrf
-                                    <div class="p-6 space-y-6">
+                                    <div class="px-6 space-y-6">
                                         <input type="hidden" name="id" id="idUser">
                                         <div>
                                             <input type="text" name="name" id="name"
@@ -169,8 +169,8 @@
                         </div>
                     </div>
                     <div id="confirmModal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                        <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -208,15 +208,15 @@
             </div>
 
             <div class="relative">
-                <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
-                    <thead class="bg-slate-100 text-white border-b">
+                <table class="dataTable table-auto" style="width:100%">
+                    <thead class="bg-rose-500 text-white">
                         <tr>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">No</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Nama</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Username</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Email</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Role</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
+                            <th class="font-bold p-4 pl-4 text-left">No</th>
+                            <th class="font-bold p-4 pl-4 text-left">Nama</th>
+                            <th class="font-bold p-4 pl-4 text-left">Username</th>
+                            <th class="font-bold p-4 pl-4 text-left">Email</th>
+                            <th class="font-bold p-4 pl-4 text-left">Role</th>
+                            <th class="font-bold p-4 pl-4 text-left">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

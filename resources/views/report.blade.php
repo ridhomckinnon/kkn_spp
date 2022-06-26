@@ -22,18 +22,19 @@
             </div> -->
         @endif
         <h2 class="font-bold text-2xl">Rekap Laporan</h2>
-        <div class="bg-white rounded-lg p-4 mt-4">
+        <div class="bg-white rounded-lg p-4 shadow mt-4">
             <form action="{{ route('report.post') }}" method="post">
                 @csrf
                 <div class="mb-4">
                     <label for="countries"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kelas</label>
                     <select id="class" name="class" required
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">-- Pilih Kelas --</option>
-                        @foreach ($classes as $class)
-                            <option value="{{ $class->id }}">{{ $class->name }}</option>
-                        @endforeach
+                        class="bg-gray-50 border overflow-y-auto border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected value="">Pilih Kelas</option>
+                            @foreach ($classes as $class)
+                            <option value="{{ $class->id }}" class="">{{ $class->name }}</option>
+                            @endforeach
+                        </option>
                     </select>
                 </div>
 
@@ -42,7 +43,7 @@
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Bulan</label>
                     <select id="countries" name="bulan" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">-- Pilih Bulan --</option>
+                        <option selected value="">Pilih Bulan</option>
                         <option value="1">Januari</option>
                         <option value="2">Februari</option>
                         <option value="3">Maret</option>
@@ -62,7 +63,7 @@
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
                     <select id="countries" name="tahun" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">-- Pilih Tahun --</option>
+                        <option selected value="">Pilih Tahun</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2020">2020</option>
@@ -76,12 +77,13 @@
                         <option value="2028">2028</option>
                     </select>
                 </div>
+                <div class="flex lg:justify-start justify-center">
 
-                <button data-modal-toggle="addModal" type="submit"
-                    class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-3 text-center">Download</button>
+                    <button type="submit"
+                        class="mx-1 ml-0 inline text-white bg-sky-500 hover:bg-sky-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-4 py-3 text-center">Download</button>
+                    <a href="/dashboard" class="mx-1 text-gray-500 bg-white text-center hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-4 py-3 hover:text-gray-900 focus:z-10">Kembali</a>
+                </div>
 
-                <a href="/dashboard"
-                    class="no-underline text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-4 py-3 hover:text-gray-900 focus:z-10">Kembali</a>
             </form>
         </div>
     </x-slot>

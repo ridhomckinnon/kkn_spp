@@ -2,11 +2,28 @@ body{
     font-family: 'Manrope';
 }
 .dataTable{
-    overflow-x: scroll;
-    max-width: 100%;
+    width: 100%;
+}
+.dataTables_wrapper{
+    margin-top: 10px;
+}
+.dataTables_filter{
+    float: left;
+    /* margin-right: 2px; */
+}
+.dataTables_wrapper .dataTables_scroll{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.dataTables_wrapper .dataTables_info{
+    text-align: center;
+}
+.option{
+    height: 200px;
 }
 table.dataTable.no-footer{
-    border: none;
+    /* border: 1px solid rgb(209 213 219);
+    overflow: hidden; */
 }
 ::-webkit-scrollbar {
     height: 10px;

@@ -4,34 +4,31 @@
             Kembali</a>
     </x-slot>
     <x-slot name="main">
-        <div class="">
-
+        <div class="bg-white p-4 shadow rounded-xl">
             <div class="border rounded-xl p-4 mb-4">
-                <div class="mb-4">
-                    <h4 class="font-semibold capitalize">{{ $student->name }}</h4>
-                    <!-- <p class="font-light">this page for student</p> -->
-                </div>
-
                 <div>
-                    <p>Nis <span>: {{ $student->nis }}</span></p>
-                    <p>Tahun Ajaran <span>: {{ $student->period->school_year }}</span></p>
-                    <p>Kelas <span>: {{ $student->classes->name }}</span></p>
-                    <p>Jurusan <span>: {{ $student->major }}</span></p>
+                    <h4 class="font-semibold capitalize mb-2">{{ $student->name }}</h4>
+                    <p class="mb-2">Nis <span>: {{ $student->nis }}</span></p>
+                    <p class="mb-2">Tahun Ajaran <span>: {{ $student->period->school_year }}</span></p>
+                    <p class="mb-2">Kelas <span>: {{ $student->classes->name }}</span></p>
+                    <p class="mb-2">Jurusan <span>: {{ $student->major }}</span></p>
 
                 </div>
             </div>
             <div class="border rounded-xl p-4 mb-4">
-                <div class="">
-                    <div class="mb-4">
-                        <h4 class="font-semibold capitalize">Transaksi terakhir</h4>
-                    </div>
-                    <table id="" class="table-auto w-full border overflow-hidden rounded-xl">
+                <div class="mb-4">
+                    <h4 class="font-semibold capitalize">Transaksi terakhir</h4>
+                </div>
+                <div class="relative overflow-x-auto">
+                    <table id="" class="dataTable table-auto w-full rounded-xl">
                         <thead class="bg-slate-100 mt-4">
                             <tr>
                                 <th class="font-bold p-4 text-gray-500 text-left">#</th>
                                 <th class="font-bold p-4 text-gray-500 text-left">Bulan</th>
                                 <th class="font-bold p-4 text-gray-500 text-left">Tahun</th>
                                 <th class="font-bold p-4 text-gray-500 text-left">Jumlah</th>
+                                <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
+                                <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
                                 <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
                             </tr>
                         </thead>
@@ -51,6 +48,7 @@
                                         {{ $data->created_at }}</td>
                                 </tr>
                             @endforeach
+
 
                         </tbody>
                     </table>
@@ -83,7 +81,7 @@
 
                         </div>
                     </div>
-                    <button type="submit" class="mt-4 bg-emerald-400 text-white py-3 px-4 rounded-xl">Cetak</button>
+                    <button type="submit" class="mt-4 bg-emerald-400 text-white w-full lg:w-32 py-3 px-4 rounded-xl">Cetak</button>
                 </form>
                 <div>
                 </div>

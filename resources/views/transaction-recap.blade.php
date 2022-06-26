@@ -24,8 +24,8 @@
         @endif
 
 
-        <div class="grid grid-cols-4 gap-4">
-            <div class="border border-b-0 rounded-lg text-center">
+        <div class="grid lg:grid-cols-4 grid-cols-2 gap-4">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Januari</div>
 
                 <div class="py-3">
@@ -65,7 +65,7 @@
 
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Februari</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -100,7 +100,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Maret</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -135,7 +135,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">April</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -170,7 +170,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Mei</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -205,7 +205,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Juni</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -240,7 +240,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Juli</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -275,7 +275,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Agustus</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -310,7 +310,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">September</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -345,7 +345,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Oktober</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -380,7 +380,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">November</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -415,7 +415,7 @@
                 @endif
             </div>
 
-            <div class="border border-b-0 rounded-lg text-center">
+            <div class="border overflow-hidden border-b-0 rounded-xl text-center">
                 <div class="bg-gray-100 py-2">Desember</div>
                 <div class="py-3">
                     <div class="mb-1">{{ rupiah($student->period->price_spp) }}</div>
@@ -454,8 +454,8 @@
 
             <div id="payModal" data-bulan="" t data-tahun="{{ $year }}" abindex="-1"
                 aria-hidden="true"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto">
+                <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -476,7 +476,7 @@
                         <form class="space-y-6"
                             action="{{ route('transaction.payment', ['idStudent' => $student->id]) }}"
                             method="POST">
-                            <div class="p-6 space-y-6">
+                            <div class="px-6 space-y-6">
                                 @csrf
                                 <input type="hidden" name="bulan" value="" id="bulan">
                                 <input type="hidden" name="tahun" value="{{ $year }}" id="tahun">
@@ -507,11 +507,11 @@
 
                             <div
                                 class="flex items-center justify-center py-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                <button data-modal-toggle="payModal" data-bulan="" t
-                                    data-tahun="{{ $year }}" ype="submit"
+                                <button data-modal-toggle="payModal" data-bulan=""
+                                    data-tahun="{{ $year }}" type="submit"
                                     class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-6 py-3 text-center">Simpan</button>
-                                <button data-modal-toggle="payModal" data-bulan="" t
-                                    data-tahun="{{ $year }}" ype="button"
+                                <button data-modal-toggle="payModal" data-bulan=""
+                                    data-tahun="{{ $year }}" type="button"
                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-md font-medium px-6 py-3 hover:text-gray-900 focus:z-10 ">Batal</button>
                             </div>
                         </form>

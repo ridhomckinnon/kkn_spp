@@ -34,8 +34,8 @@
                         type="button" data-modal-toggle="addModal"> <i class="fa-solid fa-plus"></i> Tambah Data
                     </button>
                     <div id="addModal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                        <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -116,8 +116,8 @@
                         </div>
                     </div>
                     <div id="editModal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                        <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -198,8 +198,8 @@
                     </div>
 
                     <div id="confirmModal" tabindex="-1" aria-hidden="true"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-                        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full lg:h-auto justify-center items-center">
+                        <div class="relative p-4 w-full max-w-2xl md:h-full lg:h-auto">
 
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -237,19 +237,19 @@
             </div>
 
             <div class="relative">
-                <table class="dataTable table-auto lg:w-full lg:overflow-hidden rounded-xl">
-                    <thead class="bg-slate-100 text-white border-b">
+                <table class="dataTable table-auto" style="width:100%">
+                    <thead class="bg-rose-500 text-white">
                         <tr>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">#</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Tahun Ajaran</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Jurusan</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Kelas</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Nominal</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Status</th>
-                            <th class="font-bold p-4 pl-4 text-gray-500 text-left">Aksi</th>
+                            <th class="font-bold p-4 pl-4 text-left">#</th>
+                            <th class="font-bold p-4 pl-4 text-left">Tahun Ajaran</th>
+                            <th class="font-bold p-4 pl-4 text-left">Jurusan</th>
+                            <th class="font-bold p-4 pl-4 text-left">Kelas</th>
+                            <th class="font-bold p-4 pl-4 text-left">Nominal</th>
+                            <th class="font-bold p-4 pl-4 text-left">Status</th>
+                            <th class="font-bold p-4 pl-4 text-left">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         @foreach ($period as $data)
                             <tr class="odd:bg-white even:bg-slate-100 hover:bg-slate-50 cursor-pointer">
 

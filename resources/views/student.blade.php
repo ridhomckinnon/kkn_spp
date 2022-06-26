@@ -3,11 +3,10 @@
         <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
     </x-slot>
     <x-slot name="main" class="">
-        <div class="bg-white p-4">
-
+        <div class="bg-white p-4 shadow rounded-xl">
 
             <div class="main-title mb-4">
-                <h3 class="font-bold">Pilih Kelas</h3>
+                <h2 class="font-bold text-2xl">Pilih Kelas</h2>
             </div>
             <div class="">
                 <div class="">
@@ -17,9 +16,9 @@
                             <i class="fa fa-search text-gray-500"></i>
                         </div>
 
-                            <button class="bg-rose-400 absolute rounded-xl right-2 top-2 py-1 px-3 text-white">Cari</button>
+                            <button class="bg-rose-500 focus:ring-2 focus:ring-rose-300 absolute rounded-xl right-2 top-2 py-1 px-3 text-white">Cari</button>
 
-                            <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
+                            <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border font-light border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
                         </div>
 
                     </form>
@@ -29,7 +28,7 @@
                         @foreach($classes as $class)
                             <a href="{{route('classes.student',['classesId' => $class->id])}}">
 
-                                <div class="border rounded-xl p-4 border-2 hover:border-rose-500">
+                                <div class="border rounded-xl p-4 border hover:border-rose-500">
 
                                     {{ $class->name }}
 

@@ -3,7 +3,7 @@
         <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
     </x-slot>
     <x-slot name="main">
-        <div class="bg-white p-4">
+        <div class="bg-white p-6 shadow rounded-xl">
             <div class="mb-4 relative flex justify-between align-middle items-center">
                 <div class="w-2/6 flex justify-start">
                     <div>
@@ -12,8 +12,8 @@
                     </div>
                 </div>
             </div>
-            <div class="relative">
-                <table class="dataTable table-auto w-full border overflow-hidden rounded-xl">
+            <div class="w-full">
+                <table class="dataTable" style="width:100%">
                     <thead class="bg-slate-100 mt-4">
                         <tr>
                             <th class="font-bold p-4 text-gray-500 text-left">#</th>
@@ -34,7 +34,7 @@
                                 <td class="text-left font-light p-4 border-b border-slate-100">{{ ($data->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                                 <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->period->school_year }}</td>
                                 <td class="text-left border-b border-slate-100">
-                                    <a class="no-underline" href='{{url("mutation/student/$data->id")}}'>Lihat Mutasi</a>
+                                    <a class="no-underline font-light text-blue-500" href='{{url("mutation/student/$data->id")}}'>Lihat Mutasi</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -4,7 +4,7 @@
     </x-slot>
     <x-slot name="main" class="">
         <div class="">
-            <div class="bg-white rounded-xl">
+            <div class="bg-white p-4 shadow rounded-xl">
                 <form action="" method="GET">
                     <div class="mb-4 relative">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -13,7 +13,7 @@
 
                         <button class="bg-rose-400 absolute rounded-xl right-2 top-2 py-1 px-3 text-white">Cari</button>
 
-                        <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
+                        <input type="text" name="search" placeholder="Cari Kelas" class="pl-8 border font-light border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500 w-full rounded-xl h-12">
                     </div>
 
                 </form>
@@ -21,9 +21,9 @@
                 @foreach($classes as $class)
                     <a href="{{route('transaction.student',['id_classes' => $class->id])}}">
 
-                        <div class="border rounded-xl p-4 border-2 hover:border-rose-500">
+                        <div class="border rounded-xl p-4 border hover:border-rose-500">
 
-                            {{ $class->name }}
+                            <span class="font-light">{{ $class->name }}</span>
 
                         </div>
                     </a>

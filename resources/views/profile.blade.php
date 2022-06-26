@@ -20,7 +20,7 @@
             </div> -->
         @endif
 
-        <div class="bg-white p-4 shadow">
+        <div class="bg-white p-4 shadow rounded-xl">
             <div class="mb-4">
                 <div class="flex justify-center">
                     <img src='{{asset("logo").'/'.$user->school->logo}}' alt="">
