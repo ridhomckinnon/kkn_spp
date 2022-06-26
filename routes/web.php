@@ -47,10 +47,11 @@ Route::middleware([EnsureTokenIsValid::class, 'auth'])->group(function () {
         ->pluck('total','major')->count();
 
         $class = Classes::count();
-        $transaction = Transaction::sum('jumlah');
+        $transaction = Transaction::whereMonth('payment_date',Carbon\Carbon::now()->format('m'))->sum('jumlah');
         Route::get('dashboard', [FullCalendarController::class, 'index'])->name('calendar');
         Route::post('dashboard', [FullCalendarController::class, 'ajax'])->name('calendar.post');
         return view('dashboard', compact('student', 'class','transaction','jurusan'));
+
     })->name('dashboard');
 
     Route::prefix('student')->group(function () {

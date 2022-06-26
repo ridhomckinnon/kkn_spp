@@ -19,7 +19,7 @@
                 </form>
                 <div class="grid lg:grid-cols-6 grid-cols-2 gap-4">
                 @foreach($classes as $class)
-                    <a href="{{ route('transaction.student', ['id_classes' => $class->id]) }}">
+                    <a href="{{route('transaction.student',['id_classes' => $class->id])}}">
 
                         <div class="border rounded-xl p-4 border-2 hover:border-rose-500">
 

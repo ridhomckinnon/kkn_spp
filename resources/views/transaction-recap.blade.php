@@ -35,6 +35,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '1')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -73,6 +74,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '2')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -107,6 +109,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '3')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -141,6 +144,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '4')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -175,6 +179,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '5')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -209,6 +214,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '6')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -243,6 +249,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '7')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -277,6 +284,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '8')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -311,6 +319,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '9')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -345,6 +354,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '10')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -379,6 +389,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '11')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
@@ -413,6 +424,7 @@
                             $data = DB::table('transactions')
                                 ->where('id_student', $student->id)
                                 ->where('bulan', '12')
+                                ->where('tahun', $year)
                                 ->sum('jumlah');
                         @endphp
 
