@@ -1,3 +1,4 @@
+@section('title', 'Mutasi')
 <x-app-layout>
     <x-slot name="heading">
         <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
@@ -14,14 +15,14 @@
             </div>
             <div class="w-full">
                 <table class="dataTable" style="width:100%">
-                    <thead class="bg-slate-100 mt-4">
+                    <thead class="bg-rose-500 text-white">
                         <tr>
-                            <th class="font-bold p-4 text-gray-500 text-left">#</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Nis</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Nama Siswa</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Jenis Kelamin</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Tahun Ajaran</th>
-                            <th class="font-bold p-4 text-gray-500 text-left">Aksi</th>
+                            <th class="font-bold p-4 text-left">#</th>
+                            <th class="font-bold p-4 text-left">Nis</th>
+                            <th class="font-bold p-4 text-left">Nama Siswa</th>
+                            <th class="font-bold p-4 text-left">Jenis Kelamin</th>
+                            <th class="font-bold p-4 text-left">Tahun Ajaran</th>
+                            <th class="font-bold p-4 text-left">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

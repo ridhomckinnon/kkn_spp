@@ -1,3 +1,4 @@
+@section('title', 'Tabel Transaksi')
 <x-app-layout>
     <x-slot name="heading">
         <a href="/transaction" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
@@ -272,7 +273,7 @@
                                 <td class="text-left font-light p-3 border-b border-slate-100">{{ $items->name }}</td>
                                 <td class="text-left font-light p-3 border-b border-slate-100">{{ ($items->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                                 <td class="text-left font-light p-3 border-b border-slate-100">
-                                    <select name="" id="yearOpt" class="yearOpt border rounded-lg py-2 font-light">
+                                    <select name="" id="yearOpt" class="yearOpt border border-gray-300 rounded-lg py-2 font-light">
                                         <option value="2019" class="py-2 font-light">2019</option>
                                         <option value="2020" class="py-2 font-light">2020</option>
                                         <option value="2021" class="py-2 font-light">2021</option>

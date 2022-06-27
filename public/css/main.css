@@ -18,8 +18,9 @@ body{
 .dataTables_wrapper .dataTables_info{
     text-align: center;
 }
-.option{
-    height: 200px;
+
+.datepicker{
+    z-index: 9999!important;
 }
 table.dataTable.no-footer{
     /* border: 1px solid rgb(209 213 219);

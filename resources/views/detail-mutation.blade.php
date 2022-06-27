@@ -1,3 +1,4 @@
+@section('title', 'Detail Mutasi')
 <x-app-layout>
     <x-slot name="heading">
         <a href="/mutation" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i>
@@ -19,17 +20,17 @@
                 <div class="mb-4">
                     <h4 class="font-semibold capitalize">Transaksi terakhir</h4>
                 </div>
-                <div class="relative overflow-x-auto">
-                    <table id="" class="dataTable table-auto w-full rounded-xl">
-                        <thead class="bg-slate-100 mt-4">
+                <div class="relative">
+                    <table id="" class="dataTable table-auto" style="width:100%">
+                        <thead class="bg-rose-500 text-white">
                             <tr>
-                                <th class="font-bold p-4 text-gray-500 text-left">#</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Bulan</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Tahun</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Jumlah</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
-                                <th class="font-bold p-4 text-gray-500 text-left">Tanggal Bayar</th>
+                                <th class="font-bold p-4 text-left">#</th>
+                                <th class="font-bold p-4 text-left">Bulan</th>
+                                <th class="font-bold p-4 text-left">Tahun</th>
+                                <th class="font-bold p-4 text-left">Jumlah</th>
+                                <th class="font-bold p-4 text-left">Tanggal Bayar</th>
+                                <th class="font-bold p-4 text-left">Tanggal Bayar</th>
+                                <th class="font-bold p-4 text-left">Tanggal Bayar</th>
                             </tr>
                         </thead>
                         <tbody>

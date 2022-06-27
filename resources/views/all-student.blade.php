@@ -1,3 +1,4 @@
+@section('title', 'Tabel Siswa')
 <x-app-layout>
     <x-slot name="heading">
         <a href="/student" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>
@@ -438,7 +439,7 @@
                                 <td class="text-left font-light p-4 border-b border-slate-100">{{ ($data->gender == "L") ? "Laki-laki" : "Perempuan"  }}</td>
                                 <td class="text-left font-light p-4 border-b border-slate-100">{{ $data->phone }}</td>
                                 <td class="text-left font-light p-4 border-b border-slate-100">{{ religion($data->religion) }}</td>
-                                <td class="text-left border-b border-slate-100">
+                                <td class="flex text-left border-b border-slate-100">
                                     <button
                                         class="btnEdit bg-sky-500 font-light rounded-lg text-white hover:bg-sky-600 focus:ring-2 focus:ring-sky-300 py-1 px-2 mx-2"
                                         data-modal-toggle="editModal" data-url={{ url('/') }}

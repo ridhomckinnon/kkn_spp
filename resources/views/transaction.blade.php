@@ -1,3 +1,4 @@
+@section('title', 'Transaksi')
 <x-app-layout>
     <x-slot name="heading">
         <a href="/dashboard" class="no-underline text-rose-500 hover:text-rose-700"><i class="fa fa-arrow-left"></i> Kembali</a>

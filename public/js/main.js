@@ -10,6 +10,9 @@ $(document).ready(function() {
         pagingType: 'simple_numbers',
         lengthChange: false,
     });
+    $("body").delegate(".datepicker", "focusin", function(){
+        $(this).datepicker();
+    });
 
 });
 var navHeader = document.getElementsByTagName("header");
